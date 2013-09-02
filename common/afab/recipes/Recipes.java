@@ -104,6 +104,20 @@ public class Recipes {
 				new Object[] {new ItemStack(Items.mysticalHammer, 1, Short.MAX_VALUE), 
 			new ItemStack(Block.stoneBrick, 1, 3)});
 		
-
+		CraftingManager.getInstance().addShapelessRecipe(new ItemStack(Block.gravel, 1),
+				new Object[] {new ItemStack(Items.hammer, 1, Short.MAX_VALUE), 
+			new ItemStack(Block.dirt)});
+		
+		CraftingManager.getInstance().addShapelessRecipe(new ItemStack(Block.gravel, 1),
+				new Object[] {new ItemStack(Items.mysticalHammer, 1, Short.MAX_VALUE), 
+			new ItemStack(Block.dirt)});
+		
+		CraftingManager.getInstance().addShapelessRecipe(new ItemStack(Block.dirt, 1),
+				new Object[] {new ItemStack(Items.hammer, 1, Short.MAX_VALUE), 
+			new ItemStack(Block.gravel)});
+		
+		CraftingManager.getInstance().addShapelessRecipe(new ItemStack(Block.dirt, 1),
+				new Object[] {new ItemStack(Items.mysticalHammer, 1, Short.MAX_VALUE), 
+			new ItemStack(Block.gravel)});
 	}
 }
