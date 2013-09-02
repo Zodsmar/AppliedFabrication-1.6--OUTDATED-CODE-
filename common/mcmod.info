@@ -1,0 +1,20 @@
+[
+{
+  "modid": "afabmod",
+  "name": "AppliedFabrication",
+  "description": "Anything to do with Automation and the creation of and item from another item! DEDICATED to direwolf20(for being a fantastic spotlighter and youtuber!",
+  "version": "@Version@",
+  "url": "",
+  "updateUrl": "",
+  "authorList": [
+    "Zodsmar"
+  ],
+  "credits": "By Zodsmar, insperation from ForgeCraft server, Big thanks to pahimar for ee3 open source and also Mr_TJP for his open source Project Red!",
+"logoFile": "/assets/afabmod/textures/logo/logo.png",
+  "screenshots": [
+  ],
+  "parent":"",
+  "dependencies": [
+  ]
+}
+]
