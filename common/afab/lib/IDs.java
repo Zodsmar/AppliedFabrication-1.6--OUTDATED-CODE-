@@ -10,4 +10,7 @@ public class IDs {
 	
 	public static int mysticalHammer_actual;
 	public static final int mysticalHammer_default = 4002;
+	
+	public static int fabTable_actual;
+	public static final int fabTable_default = 3000;
 }

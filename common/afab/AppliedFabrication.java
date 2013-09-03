@@ -47,7 +47,6 @@ public class AppliedFabrication {
 		
 		proxy.initRenderers();
 		proxy.initSounds();
-		
 		//AppliedFabrication.RemoveRecipe(new ItemStack(Block.stoneBrick));
 	}
 
@@ -56,15 +55,16 @@ public class AppliedFabrication {
 		LanguageRegistry.instance().addStringLocalization("itemGroup." + ModInfo.MODNAME, "en_US", ModInfo.MODNAME);
 		LanguageRegistry.instance().addStringLocalization("itemGroup." + "AFComponents", "en_US", "AFComponents");
 		
+		LogHelper.log(Level.INFO, "Preparing blocks");
+		Blocks.init();
+		Blocks.addNames();
+		LogHelper.log(Level.INFO, "Blocks loaded");
+		
 		LogHelper.log(Level.INFO, "Preparing items");
 		Items.init();
 		Items.addNames();
 		LogHelper.log(Level.INFO, "Items loaded");
 
-		LogHelper.log(Level.INFO, "Preparing blocks");
-		Blocks.init();
-		Blocks.addNames();
-		LogHelper.log(Level.INFO, "Blocks loaded");
 
 		LogHelper.log(Level.INFO, "Preparing recipes");
 		Recipes.init();

@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
+import net.minecraftforge.oredict.OreDictionary;
 import afab.items.Items;
 
 
@@ -26,7 +27,7 @@ public class Recipes {
 				" 1 ",
 				" 0 ",
 				Character.valueOf('1'), new ItemStack(Item.stick),
-				Character.valueOf('0'), new ItemStack(Block.wood, 1)});
+				Character.valueOf('0'), new ItemStack(Block.wood, 1, OreDictionary.WILDCARD_VALUE)});
 		
 		CraftingManager.getInstance().addRecipe(new ItemStack(Items.hammer),
 				new Object[] {
@@ -119,5 +120,10 @@ public class Recipes {
 		CraftingManager.getInstance().addShapelessRecipe(new ItemStack(Block.dirt, 1),
 				new Object[] {new ItemStack(Items.mysticalHammer, 1, Short.MAX_VALUE), 
 			new ItemStack(Block.gravel)});
+		
+		CraftingManager.getInstance().addShapelessRecipe(new ItemStack(Block.grass, 1),
+				new Object[] {new ItemStack(Item.dyePowder, 1, 15), 
+			new ItemStack(Block.dirt)});
+		
 	}
 }

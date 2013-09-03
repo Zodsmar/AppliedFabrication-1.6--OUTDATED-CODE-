@@ -22,4 +22,7 @@ public class Names {
 	
 	public static final String mysticalHammer_name = "Mystical Hammer";
 	public static final String mysticalHammer_unlocalizedname = "mysticalHammer";
+	
+	public static final String fabTable_name = "Fabrication Table";
+	public static final String fabTable_unlocalizedname = "fabTable";
 }
