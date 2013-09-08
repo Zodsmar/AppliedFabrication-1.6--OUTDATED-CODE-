@@ -36,7 +36,8 @@ public class MetaItems extends Item{
 		"hammerHead",
 		"rod",
 		"divineRod",
-		"infusedHead"
+		"infusedHead",
+		"chain",
 		};
 
 		@Override

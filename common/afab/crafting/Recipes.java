@@ -61,6 +61,33 @@ public class Recipes {
 				Character.valueOf('0'), new ItemStack(Block.stoneBrick),
 				Character.valueOf('1'), new ItemStack(Block.tnt)});
 		
+		CraftingManager.getInstance().addRecipe(new ItemStack(Item.helmetChain),
+				new Object[] {
+				"000",
+				"0 0",
+				"   ",
+				Character.valueOf('0'), new ItemStack(Items.meta, 1, 4)});
+		
+		CraftingManager.getInstance().addRecipe(new ItemStack(Item.plateChain),
+				new Object[] {
+				"0 0",
+				"000",
+				"000",
+				Character.valueOf('0'), new ItemStack(Items.meta, 1, 4)});
+		
+		CraftingManager.getInstance().addRecipe(new ItemStack(Item.legsChain),
+				new Object[] {
+				"000",
+				"0 0",
+				"0 0",
+				Character.valueOf('0'), new ItemStack(Items.meta, 1, 4)});
+		
+		CraftingManager.getInstance().addRecipe(new ItemStack(Item.bootsChain),
+				new Object[] {
+				"   ",
+				"0 0",
+				"0 0",
+				Character.valueOf('0'), new ItemStack(Items.meta, 1, 4)});
 		
 		
 		//Shapeless Recipes
@@ -124,6 +151,14 @@ public class Recipes {
 		CraftingManager.getInstance().addShapelessRecipe(new ItemStack(Block.grass, 1),
 				new Object[] {new ItemStack(Item.dyePowder, 1, 15), 
 			new ItemStack(Block.dirt)});
+		
+		CraftingManager.getInstance().addShapelessRecipe(new ItemStack(Items.meta, 8, 4),
+				new Object[] {new ItemStack(Items.hammer, 1, Short.MAX_VALUE), 
+			new ItemStack(Item.ingotIron)});
+		
+		CraftingManager.getInstance().addShapelessRecipe(new ItemStack(Items.meta, 8, 4),
+				new Object[] {new ItemStack(Items.mysticalHammer, 1, Short.MAX_VALUE), 
+			new ItemStack(Item.ingotIron)});
 		
 	}
 }

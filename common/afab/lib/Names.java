@@ -8,13 +8,15 @@ public class Names {
 	"hammerHead",
 	"rod",
 	"divineRod",
-	"infusedHead"
+	"infusedHead",
+	"chain"
 	};
 	public static final String[] metaItems_name = {
 	"Hammer Head",
 	"Rod",
 	"Divine Rod",
-	"Infused Head"
+	"Infused Head",
+	"Chain"
 	};
 	
 	public static final String hammer_name = "Hammer";
