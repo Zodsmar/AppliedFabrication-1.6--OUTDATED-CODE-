@@ -1,4 +1,4 @@
-package afab.recipes;
+package afab.crafting;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;

@@ -7,13 +7,14 @@ import net.minecraft.creativetab.CreativeTabs;
 import afab.blocks.Blocks;
 import afab.config.ConfigHandler;
 import afab.core.proxies.CommonProxy;
+import afab.crafting.Recipes;
+import afab.gui.GuiHandler;
 import afab.items.Items;
 import afab.lib.AFComponentsTab;
 import afab.lib.AFTab;
 import afab.lib.LogHelper;
 import afab.lib.ModInfo;
 import afab.network.PacketHandler;
-import afab.recipes.Recipes;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -22,6 +23,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
+import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 
@@ -38,7 +40,7 @@ public class AppliedFabrication {
 	
 	public static CreativeTabs AFTab = new AFTab(CreativeTabs.getNextID(), ModInfo.MODNAME);
 	public static CreativeTabs AFComponents = new AFComponentsTab(CreativeTabs.getNextID(), "AFComponents");
-	
+	private static GuiHandler guiHandler = new GuiHandler();
 	
 	@EventHandler
 	public static void preInit( FMLPreInitializationEvent event ) {
@@ -70,6 +72,8 @@ public class AppliedFabrication {
 		Recipes.init();
 		LogHelper.log(Level.INFO, "Recipes loaded");
 
+		NetworkRegistry.instance().registerGuiHandler(ModInfo.MODNAME, guiHandler);
+		
 
 	}
 

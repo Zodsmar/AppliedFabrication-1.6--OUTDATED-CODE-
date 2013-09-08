@@ -3,7 +3,9 @@ package afab.blocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.Icon;
+import net.minecraft.world.World;
 import afab.AppliedFabrication;
 import afab.lib.ModInfo;
 import cpw.mods.fml.relauncher.Side;
@@ -21,6 +23,7 @@ public class FabricationTable extends Block{
 	private Icon tableIconTop;
 	@SideOnly(Side.CLIENT)
 	private Icon tableIconFront;
+
 	
 	@SideOnly(Side.CLIENT)
 	public Icon getIcon(int par1, int par2)
@@ -35,6 +38,20 @@ public class FabricationTable extends Block{
 	this.tableIconTop = par1IconRegister.registerIcon(ModInfo.MODID.toLowerCase() + ":table_top");
 	this.tableIconFront = par1IconRegister.registerIcon(ModInfo.MODID.toLowerCase() + ":table_front");
 	}
+	
+	public boolean onBlockActivated(World var1, int var2, int var3, int var4, EntityPlayer player, int var6, float var7, float var8, float var9)
+	{
+	         if (!player.isSneaking())
+	{
+	player.openGui(AppliedFabrication.instance, 0, var1, var2, var3, var4);
+	return true;
+	}
+	else
+	{
+	return false;
+	}
+	}
+
 
 
 
