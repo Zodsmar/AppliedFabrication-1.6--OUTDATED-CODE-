@@ -8,6 +8,7 @@ import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 import afab.AppliedFabrication;
 import afab.lib.ModInfo;
+import afab.lib.Names;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -18,6 +19,7 @@ public class FabricationTable extends Block{
 		this.setCreativeTab(AppliedFabrication.AFTab);
 		this.setHardness(2F);
 		this.setStepSound(soundWoodFootstep);
+		this.setUnlocalizedName(Names.fabTable_unlocalizedname);
 	}
 	@SideOnly(Side.CLIENT)
 	private Icon tableIconTop;
@@ -26,9 +28,9 @@ public class FabricationTable extends Block{
 
 	
 	@SideOnly(Side.CLIENT)
-	public Icon getIcon(int par1, int par2)
+	public Icon getIcon(int side, int meta)
 	{
-	         return par1 == 1 ? this.tableIconTop : (par1 == 0 ? Block.planks.getBlockTextureFromSide(par1) : (par1 != 2 && par1 != 4 ? this.blockIcon : this.tableIconFront));
+	         return side == 1 ? this.tableIconTop : (side == 0 ? Block.planks.getBlockTextureFromSide(side) : (side != 2 && side != 4 ? this.blockIcon : this.tableIconFront));
 	}
 
 	@SideOnly(Side.CLIENT)
