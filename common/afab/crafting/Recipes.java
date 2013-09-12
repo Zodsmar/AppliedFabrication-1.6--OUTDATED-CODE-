@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
+import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraftforge.oredict.OreDictionary;
 import afab.items.Items;
 
@@ -13,7 +14,7 @@ public class Recipes {
 	
 	public static void init() {
 
-		//Recipes
+		//Crafting Recipes
 		CraftingManager.getInstance().addRecipe(new ItemStack(Items.meta, 1, 0),
 				new Object[] {
 				"000",
@@ -138,6 +139,14 @@ public class Recipes {
 				Character.valueOf('2'), new ItemStack(Items.meta, 1, 4),
 				Character.valueOf('3'), new ItemStack(Item.ingotIron)});
 		
+		CraftingManager.getInstance().addRecipe(new ItemStack(Block.web),
+				new Object[] {
+				"000",
+				"010",
+				"000",
+				Character.valueOf('0'), new ItemStack(Item.silk),
+				Character.valueOf('1'), new ItemStack(Item.slimeBall)});
+		
 		//Shapeless Recipes
 		CraftingManager.getInstance().addShapelessRecipe(new ItemStack(Block.stoneBrick, 1),
 				new Object[] {new ItemStack(Items.hammer, 1, Short.MAX_VALUE), 
@@ -180,7 +189,7 @@ public class Recipes {
 			new ItemStack(Item.ingotIron), 
 			new ItemStack(Item.netherStar), 
 			new ItemStack(Items.meta, 1, 0)});
-		
+
 		CraftingManager.getInstance().addShapelessRecipe(new ItemStack(Block.stoneBrick, 1, 3),
 				new Object[] {new ItemStack(Items.hammer, 1, Short.MAX_VALUE), 
 			new ItemStack(Block.stoneBrick, 1, 0)});
@@ -233,5 +242,22 @@ public class Recipes {
 				new Object[] {new ItemStack(Items.mysticalHammer, 1, Short.MAX_VALUE), 
 			new ItemStack(Item.rottenFlesh)});
 		
+		CraftingManager.getInstance().addShapelessRecipe(new ItemStack(Items.meta, 1, 5),
+				new Object[] {new ItemStack(Items.hammer, 1, Short.MAX_VALUE), 
+			new ItemStack(Item.wheat)});
+		
+		CraftingManager.getInstance().addShapelessRecipe(new ItemStack(Items.meta, 1, 5),
+				new Object[] {new ItemStack(Items.mysticalHammer, 1, Short.MAX_VALUE), 
+			new ItemStack(Item.wheat)});
+		
+		CraftingManager.getInstance().addShapelessRecipe(new ItemStack(Items.meta, 1, 6),
+				new Object[] {new ItemStack(Item.bucketMilk), 
+			new ItemStack(Items.meta, 1, 5)});
+		
+		
+		
+		//Furnace Recipes
+		FurnaceRecipes.smelting().addSmelting(Items.meta.itemID, 5, new ItemStack(Item.bread, 1), 0.1F);
+		FurnaceRecipes.smelting().addSmelting(Items.meta.itemID, 6, new ItemStack(Item.bread, 2), 0.1F);
 	}
 }

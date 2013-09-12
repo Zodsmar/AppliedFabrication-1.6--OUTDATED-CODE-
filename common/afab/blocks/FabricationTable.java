@@ -54,8 +54,4 @@ public class FabricationTable extends Block{
 	}
 	}
 
-
-
-
-
 }
