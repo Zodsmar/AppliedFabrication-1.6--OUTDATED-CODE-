@@ -147,6 +147,16 @@ public class Recipes {
 				Character.valueOf('0'), new ItemStack(Item.silk),
 				Character.valueOf('1'), new ItemStack(Item.slimeBall)});
 		
+		CraftingManager.getInstance().addRecipe(new ItemStack(Item.slimeBall),
+				new Object[] {
+				"213",
+				"203",
+				"213",
+				Character.valueOf('0'), new ItemStack(Item.bucketWater),
+				Character.valueOf('1'), new ItemStack(Block.dirt),
+				Character.valueOf('2'), new ItemStack(Block.sapling, 1, OreDictionary.WILDCARD_VALUE),
+				Character.valueOf('3'), new ItemStack(Item.seeds)});
+		
 		//Shapeless Recipes
 		CraftingManager.getInstance().addShapelessRecipe(new ItemStack(Block.stoneBrick, 1),
 				new Object[] {new ItemStack(Items.hammer, 1, Short.MAX_VALUE), 
@@ -258,6 +268,6 @@ public class Recipes {
 		
 		//Furnace Recipes
 		FurnaceRecipes.smelting().addSmelting(Items.meta.itemID, 5, new ItemStack(Item.bread, 1), 0.1F);
-		FurnaceRecipes.smelting().addSmelting(Items.meta.itemID, 6, new ItemStack(Item.bread, 2), 0.1F);
+		FurnaceRecipes.smelting().addSmelting(Items.meta.itemID, 6, new ItemStack(Item.bread, 3), 0.1F);
 	}
 }

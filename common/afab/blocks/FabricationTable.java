@@ -25,20 +25,28 @@ public class FabricationTable extends Block{
 	private Icon tableIconTop;
 	@SideOnly(Side.CLIENT)
 	private Icon tableIconFront;
-
-	
 	@SideOnly(Side.CLIENT)
-	public Icon getIcon(int side, int meta)
-	{
-	         return side == 1 ? this.tableIconTop : (side == 0 ? Block.planks.getBlockTextureFromSide(side) : (side != 2 && side != 4 ? this.blockIcon : this.tableIconFront));
-	}
+	private Icon tableIconSide;
 
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister par1IconRegister)
 	{
-	this.blockIcon = par1IconRegister.registerIcon(ModInfo.MODID.toLowerCase() + ":table_side");
+	this.tableIconSide = par1IconRegister.registerIcon(ModInfo.MODID.toLowerCase() + ":table_side");
 	this.tableIconTop = par1IconRegister.registerIcon(ModInfo.MODID.toLowerCase() + ":table_top");
 	this.tableIconFront = par1IconRegister.registerIcon(ModInfo.MODID.toLowerCase() + ":table_front");
+	}
+	
+	@Override
+	public Icon getIcon(int side, int meta) {
+	if(side == 0) {
+	return Block.planks.getBlockTextureFromSide(side);
+	} else if(side == 1) {
+	return tableIconTop;
+	} else if(side == 5 || side == 3){
+	return tableIconFront;
+	} else{
+		return tableIconSide;
+	}
 	}
 	
 	public boolean onBlockActivated(World var1, int var2, int var3, int var4, EntityPlayer player, int var6, float var7, float var8, float var9)
@@ -53,5 +61,6 @@ public class FabricationTable extends Block{
 	return false;
 	}
 	}
+	
 
 }
