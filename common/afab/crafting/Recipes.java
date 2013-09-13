@@ -157,6 +157,28 @@ public class Recipes {
 				Character.valueOf('2'), new ItemStack(Block.sapling, 1, OreDictionary.WILDCARD_VALUE),
 				Character.valueOf('3'), new ItemStack(Item.seeds)});
 		
+		CraftingManager.getInstance().addRecipe(new ItemStack(Block.endPortalFrame, 12),
+				new Object[] {
+				"010",
+				"242",
+				"353",
+				Character.valueOf('0'), new ItemStack(Block.obsidian),
+				Character.valueOf('1'), new ItemStack(Item.eyeOfEnder),
+				Character.valueOf('2'), new ItemStack(Block.whiteStone),
+				Character.valueOf('3'), new ItemStack(Item.netherStar),
+				Character.valueOf('4'), new ItemStack(Block.dragonEgg),
+				Character.valueOf('5'), new ItemStack(Items.mysticalHammer, 1, Short.MAX_VALUE)});
+		
+		CraftingManager.getInstance().addRecipe(new ItemStack(Block.dragonEgg),
+				new Object[] {
+				"010",
+				"323",
+				"010",
+				Character.valueOf('0'), new ItemStack(Block.obsidian),
+				Character.valueOf('1'), new ItemStack(Item.netherStar),
+				Character.valueOf('2'), new ItemStack(Block.blockDiamond),
+				Character.valueOf('3'), new ItemStack(Block.whiteStone)});
+		
 		//Shapeless Recipes
 		CraftingManager.getInstance().addShapelessRecipe(new ItemStack(Block.stoneBrick, 1),
 				new Object[] {new ItemStack(Items.hammer, 1, Short.MAX_VALUE), 
