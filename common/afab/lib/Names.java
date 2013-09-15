@@ -31,4 +31,6 @@ public class Names {
 	
 	public static final String fabTable_name = "Fabrication Table";
 	public static final String fabTable_unlocalizedname = "fabTable";
+	
+	public static final String fabTable_te_name = "fabTableGui";
 }

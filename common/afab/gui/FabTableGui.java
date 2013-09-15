@@ -1,13 +1,14 @@
 package afab.gui;
 
 import net.minecraft.client.gui.inventory.GuiContainer;
-import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 
 import org.lwjgl.opengl.GL11;
 
+import afab.lib.ModInfo;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -15,7 +16,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class FabTableGui extends GuiContainer{
 
 	
-	private static final ResourceLocation field_110422_t = new ResourceLocation("textures/gui/container/crafting_table.png");
+	private static final ResourceLocation field_110422_t = new ResourceLocation(ModInfo.MODID.toLowerCase() + ":textures/gui/fabTableGui.png");
 
 	public FabTableGui(InventoryPlayer par1InventoryPlayer, World par2World, int par3, int par4, int par5)
 	{
@@ -26,8 +27,8 @@ public class FabTableGui extends GuiContainer{
 	         */
 	protected void drawGuiContainerForegroundLayer(int par1, int par2)
 	{
-	         this.fontRenderer.drawString(I18n.func_135053_a("container.crafting"), 28, 6, 4210752);
-	         this.fontRenderer.drawString(I18n.func_135053_a("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+	         this.fontRenderer.drawString(StatCollector.translateToLocal("\u00a71Fabrication Table"), 48, 6, 4210752);
+	         this.fontRenderer.drawString(StatCollector.translateToLocal("Inventory"), 8, this.ySize - 96 + 2, 4210752);
 	}
 	/**
 	         * Draw the background layer for the GuiContainer (everything behind the items)

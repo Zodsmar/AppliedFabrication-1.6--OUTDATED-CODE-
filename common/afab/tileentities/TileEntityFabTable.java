@@ -10,7 +10,7 @@ public class TileEntityFabTable extends TileEntity implements IInventory{
 		private ItemStack[] inventory;
 
 		public TileEntityFabTable() {
-		inventory = new ItemStack[10];
+		inventory = new ItemStack[45];
 		}
 	
 		@Override
