@@ -12,6 +12,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.world.World;
 import afab.lib.IDs;
+import afab.tileentities.TileEntityFabTable;
 
 public class ContainerFabTable extends Container{
 
@@ -22,39 +23,57 @@ public class ContainerFabTable extends Container{
 	private int posX;
 	private int posY;
 	private int posZ;
+	
+	TileEntityFabTable tileFabTable;
 
-	public ContainerFabTable(InventoryPlayer par1InventoryPlayer, World par2World, int par3, int par4, int par5)
+
+	
+	
+	public ContainerFabTable(TileEntityFabTable tileFabTable, InventoryPlayer par1InventoryPlayer, World par2World, int par3, int par4, int par5)
 	{
 	         this.worldObj = par2World;
 	         this.posX = par3;
 	         this.posY = par4;
 	         this.posZ = par5;
-	         this.addSlotToContainer(new SlotCrafting(par1InventoryPlayer.player, this.craftMatrix, this.craftResult, 0, 124, 35));
+	         this.addSlotToContainer(new SlotCrafting(par1InventoryPlayer.player, this.craftMatrix, this.craftResult, 0, 143, 36));
 	         int l;
 	         int i1;
+	         this.tileFabTable = tileFabTable;
+	         
 
 	         for (l = 0; l < 3; ++l)
 	         {
 	                 for (i1 = 0; i1 < 3; ++i1)
 	                 {
-	                         this.addSlotToContainer(new Slot(this.craftMatrix, i1 + l * 3, 30 + i1 * 18, 17 + l * 18));
+	                         this.addSlotToContainer(new Slot(this.craftMatrix, i1 + l * 3, 48 + i1 * 18, 18 + l * 18));
 	                 }
 	         }
-
-	         for (l = 0; l < 3; ++l)
+	         
+	         for(int i = 0; i < 2; i++)
 	         {
-	                 for (i1 = 0; i1 < 9; ++i1)
-	                 {
-	                         this.addSlotToContainer(new Slot(par1InventoryPlayer, i1 + l * 9 + 9, 8 + i1 * 18, 84 + l * 18));
-	                 }
+	             for(int j = 0; j < 9; j++)
+	            	 this.addSlotToContainer(new Slot(tileFabTable, j + i * 9, 8 + j * 18, 90 + i * 18));
+
+	         }
+
+	         
+	         for(int i = 0; i < 3; i++)
+	         {
+	             for(int j = 0; j < 9; j++)
+	            	 this.addSlotToContainer(new Slot(par1InventoryPlayer, j + i * 9 + 9, 8 + j * 18, 140 + i * 18));
+
 	         }
 
 	         for (l = 0; l < 9; ++l)
 	         {
-	                 this.addSlotToContainer(new Slot(par1InventoryPlayer, l, 8 + l * 18, 142));
+	                 this.addSlotToContainer(new Slot(par1InventoryPlayer, l, 8 + l * 18, 198));
 	         }
 
 	         this.onCraftMatrixChanged(this.craftMatrix);
+	         
+	         addSlotToContainer(new Slot(par1InventoryPlayer, 36, 17, 36));
+
+
 	}
 
 	/**
@@ -94,68 +113,73 @@ public class ContainerFabTable extends Container{
 	/**
 	         * Called when a player shift-clicks on a slot. You must override this or you will crash when someone does that.
 	         */
-	public ItemStack transferStackInSlot(EntityPlayer par1EntityPlayer, int par2)
-	{
-	         ItemStack itemstack = null;
-	         Slot slot = (Slot)this.inventorySlots.get(par2);
+	@Override
+	public ItemStack transferStackInSlot(EntityPlayer player, int numSlot)
+    {
+        ItemStack stack = null;
+        Slot slot = (Slot)this.inventorySlots.get(numSlot);
 
-	         if (slot != null && slot.getHasStack())
-	         {
-	                 ItemStack itemstack1 = slot.getStack();
-	                 itemstack = itemstack1.copy();
+        if (slot != null && slot.getHasStack())
+        {
+            ItemStack stack2 = slot.getStack();
+            stack = stack2.copy();
+            
+            if (numSlot == 0)
+            {
+                if (!this.mergeItemStack(stack2, 10, 55, true))
+                {
+                    return null;
+                }
+                
+            }
+            //Merge crafting matrix item with supply matrix inventory
+            else if(numSlot > 0 && numSlot <= 9)
+            {
+            	if(!this.mergeItemStack(stack2, 10, 28, false))
+            	{
+            		if(!this.mergeItemStack(stack2, 28, 64, false))
+            		{
+                		return null;
+            		}
+            	}
+            }
+            //Merge Supply matrix item with player inventory
+            else if (numSlot >= 10 && numSlot <= 27)
+            {
+                if (!this.mergeItemStack(stack2, 28, 64, false))
+                {
+                    return null;
+                }
+            }
+            //Merge player inventory item with supply matrix
+            else if (numSlot >= 28 && numSlot < 64)
+            {
+                if (!this.mergeItemStack(stack2, 10, 28, false))
+                {
+                    return null;
+                }
+            }
 
-	                 if (par2 == 0)
-	                 {
-	                         if (!this.mergeItemStack(itemstack1, 10, 46, true))
-	                         {
-	                                 return null;
-	                         }
+            if (stack2.stackSize == 0)
+            {
+                slot.putStack((ItemStack)null);
+            }
+            else
+            {
+                slot.onSlotChanged();
+            }
 
-	                         slot.onSlotChange(itemstack1, itemstack);
-	                 }
-	                 else if (par2 >= 10 && par2 < 37)
-	                 {
-	                         if (!this.mergeItemStack(itemstack1, 37, 46, false))
-	                         {
-	                                 return null;
-	                         }
-	                 }
-	                 else if (par2 >= 37 && par2 < 46)
-	                 {
-	                         if (!this.mergeItemStack(itemstack1, 10, 37, false))
-	                         {
-	                                 return null;
-	                         }
-	                 }
-	                 else if (!this.mergeItemStack(itemstack1, 10, 46, false))
-	                 {
-	                         return null;
-	                 }
+            if (stack2.stackSize == stack.stackSize)
+            {
+                return null;
+            }
 
-	                 if (itemstack1.stackSize == 0)
-	                 {
-	                         slot.putStack((ItemStack)null);
-	                 }
-	                 else
-	                 {
-	                         slot.onSlotChanged();
-	                 }
+            slot.onPickupFromSlot(player, stack2);
+        }
 
-	                 if (itemstack1.stackSize == itemstack.stackSize)
-	                 {
-	                         return null;
-	                 }
+        return stack;
+    }
 
-	                 slot.onPickupFromSlot(par1EntityPlayer, itemstack1);
-	         }
-
-	         return itemstack;
-	}
-
-	public boolean func_94530_a(ItemStack par1ItemStack, Slot par2Slot)
-	{
-	         return par2Slot.inventory != this.craftResult && super.func_94530_a(par1ItemStack, par2Slot);
-	}
-
+	
 
 }

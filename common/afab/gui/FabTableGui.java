@@ -9,6 +9,7 @@ import net.minecraft.world.World;
 import org.lwjgl.opengl.GL11;
 
 import afab.lib.ModInfo;
+import afab.tileentities.TileEntityFabTable;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -18,10 +19,13 @@ public class FabTableGui extends GuiContainer{
 	
 	private static final ResourceLocation field_110422_t = new ResourceLocation(ModInfo.MODID.toLowerCase() + ":textures/gui/fabTableGui.png");
 
-	public FabTableGui(InventoryPlayer par1InventoryPlayer, World par2World, int par3, int par4, int par5)
+	public FabTableGui(InventoryPlayer par1InventoryPlayer, TileEntityFabTable tileFabTable, World par2World, int par3, int par4, int par5)
 	{
-	         super(new ContainerFabTable(par1InventoryPlayer, par2World, par3, par4, par5));
+	         super(new ContainerFabTable(tileFabTable, par1InventoryPlayer, par2World, par3, par4, par5));
+	         xSize = 176;
+	         ySize = 222;
 	}
+
 	/**
 	         * Draw the foreground layer for the GuiContainer (everything in front of the items)
 	         */

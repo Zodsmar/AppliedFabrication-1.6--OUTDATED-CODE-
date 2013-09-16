@@ -8,10 +8,11 @@ import net.minecraft.tileentity.TileEntity;
 public class TileEntityFabTable extends TileEntity implements IInventory{
 
 		private ItemStack[] inventory;
-
+		
 		public TileEntityFabTable() {
 		inventory = new ItemStack[45];
 		}
+		
 	
 		@Override
 		public int getSizeInventory() {
@@ -24,35 +25,54 @@ public class TileEntityFabTable extends TileEntity implements IInventory{
 		}
 
 		@Override
-		public ItemStack decrStackSize(int slot, int count) {
-		ItemStack itemstack = getStackInSlot(slot);
-
-		if(itemstack != null) {
-		if(itemstack.stackSize <= count) {
-		setInventorySlotContents(slot, null);
-		} else {
-		itemstack = itemstack.splitStack(count);
-		onInventoryChanged();
-		}
-		}
-		return itemstack;
-		}
+		public ItemStack decrStackSize(int slot, int amount)
+			{
+				ItemStack stack = getStackInSlot(slot);
+				if(stack != null)
+				{
+					if(stack.stackSize <= amount)
+					{
+						setInventorySlotContents(slot, null);
+					} else
+					{
+						stack = stack.splitStack(amount);
+						if(stack.stackSize == 0) 
+						{
+							setInventorySlotContents(slot, null);
+						}else
+							onInventoryChanged();
+					}
+				}
+				return stack;
+			}
 
 		@Override
 		public ItemStack getStackInSlotOnClosing(int slot) {
-		ItemStack itemstack = getStackInSlot(slot);
-		setInventorySlotContents(slot, null);
-		return itemstack;
+			{
+				 if (inventory[slot] != null)
+				 {
+					 ItemStack itemstack = inventory[slot];
+					 inventory[slot] = null;
+					 return itemstack;
+				 }
+				 else
+				 {
+					 return null;
+				 }
+			}
 		}
 
+		
 		@Override
 		public void setInventorySlotContents(int slot, ItemStack itemstack) {
-		inventory[slot] = itemstack;
-
-		if(itemstack != null && itemstack.stackSize > getInventoryStackLimit()) {
-		itemstack.stackSize = getInventoryStackLimit();
-		}
-		onInventoryChanged();
+			{
+				inventory[slot] = itemstack;
+				if(itemstack != null && itemstack.stackSize > getInventoryStackLimit())
+				{
+					itemstack.stackSize = getInventoryStackLimit();
+				}
+				onInventoryChanged();
+			}
 		}
 
 		@Override
