@@ -71,7 +71,7 @@ public class ContainerFabTable extends Container{
 
 	         this.onCraftMatrixChanged(this.craftMatrix);
 	         
-	         addSlotToContainer(new Slot(par1InventoryPlayer, 36, 17, 36));
+	         //addSlotToContainer(new Slot(par1InventoryPlayer, 36, 17, 36));
 
 
 	}
@@ -84,26 +84,6 @@ public class ContainerFabTable extends Container{
 	         this.craftResult.setInventorySlotContents(0, CraftingManager.getInstance().findMatchingRecipe(this.craftMatrix, this.worldObj));
 	}
 
-	/**
-	         * Called when the container is closed.
-	         */
-	public void onContainerClosed(EntityPlayer par1EntityPlayer)
-	{
-	         super.onContainerClosed(par1EntityPlayer);
-
-	         if (!this.worldObj.isRemote)
-	         {
-	                 for (int i = 0; i < 9; ++i)
-	                 {
-	                         ItemStack itemstack = this.craftMatrix.getStackInSlotOnClosing(i);
-
-	                         if (itemstack != null)
-	                         {
-	                                 par1EntityPlayer.dropPlayerItem(itemstack);
-	                         }
-	                 }
-	         }
-	}
 
 	public boolean canInteractWith(EntityPlayer par1EntityPlayer)
 	{
