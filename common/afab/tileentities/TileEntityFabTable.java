@@ -139,5 +139,6 @@ public class TileEntityFabTable extends TileEntity implements IInventory
         nbtTagCompound.setTag("Items", tagList);
 
     }
+    
 }
 

@@ -81,17 +81,7 @@ public class ContainerFabTable extends Container{
 	public void onContainerClosed(EntityPlayer par1EntityPlayer)
 	{
 	         super.onContainerClosed(par1EntityPlayer);
-	         if (!this.worldObj.isRemote)
-	         {
-	                 for (int i = 0; i < 9; ++i)
-	                 {
-	                         ItemStack itemstack = this.craftMatrix.getStackInSlotOnClosing(i);
-	                         if (itemstack != null)
-	                         {
-	                                 par1EntityPlayer.dropPlayerItem(itemstack);
-	                         }
-	                 }
-	         }
+	        // TileEntity.SaveContainer(this);
 	}
 	
 	public void onCraftMatrixChanged(IInventory IInv)
