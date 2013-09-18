@@ -4,7 +4,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
-import net.minecraft.inventory.InventoryCraftResult;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
@@ -17,16 +16,17 @@ public class ContainerFabTable extends Container{
 
 	
 	
-	/** The crafting matrix inventory (3x3). */
-	public InventoryCrafting craftMatrix = new InventoryCrafting(this, 3, 3);
-	public IInventory craftResult = new InventoryCraftResult();
 	private World worldObj;
 	
 	public TileEntityFabTable tileEntity;
+	
 	FabTabSlot FabSlot;
 	private int posX;
 	private int posY;
 	private int posZ;
+
+    /** The crafting matrix inventory (3x3). */          //container, width, length
+    public InventoryCrafting craftMatrix = new InventoryCrafting(this, 3, 3);
 
 
 	
@@ -37,10 +37,12 @@ public class ContainerFabTable extends Container{
 	         posX = x;
 	         posY = y;
 	         posZ = z;
-	         addSlotToContainer(new FabTabSlot(playerInv.player, this.craftMatrix, this.craftResult, 0, 143, 36));
+	         addSlotToContainer(new FabTabSlot(playerInv.player, this.craftMatrix, tileFabTable.craftResult, 0, 143, 36));
 	         int row;
 	         int col;
 	         tileEntity = tileFabTable;
+	         
+	         updateCraftingMatrix();
 	         
 
 	         for (row = 0; row < 3; ++row)
@@ -78,15 +80,30 @@ public class ContainerFabTable extends Container{
 
 	}
 	
-	public void onContainerClosed(EntityPlayer par1EntityPlayer)
+
+    private void updateCraftingMatrix() {
+        for (int i = 0; i < craftMatrix.getSizeInventory(); i++) {
+            craftMatrix.setInventorySlotContents(i, tileEntity.craftMatrixInventory[i]);
+        }
+    }
+	
+
+    public void onContainerClosed(EntityPlayer par1EntityPlayer)
 	{
 	         super.onContainerClosed(par1EntityPlayer);
-	        // TileEntity.SaveContainer(this);
+	         saveCraftingMatrix();
 	}
 	
-	public void onCraftMatrixChanged(IInventory IInv)
+	private void saveCraftingMatrix() {
+	    for (int i = 0; i < craftMatrix.getSizeInventory(); i++) {
+	        tileEntity.craftMatrixInventory[i] = craftMatrix.getStackInSlot(i);
+        }
+    }
+
+
+    public void onCraftMatrixChanged(IInventory IInv)
 	{	
-	         this.craftResult.setInventorySlotContents(0, CraftingManager.getInstance().findMatchingRecipe(this.craftMatrix, this.worldObj));
+	    tileEntity.craftResult.setInventorySlotContents(0, CraftingManager.getInstance().findMatchingRecipe(this.craftMatrix, this.worldObj));
 	}
 	
 

@@ -2,6 +2,7 @@ package afab.tileentities;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
+import net.minecraft.inventory.InventoryCraftResult;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
@@ -12,11 +13,14 @@ import net.minecraft.tileentity.TileEntity;
 public class TileEntityFabTable extends TileEntity implements IInventory
 {
 	private ItemStack[] inventory;
-	
+    public IInventory craftResult = new InventoryCraftResult();
+	public ItemStack[] craftMatrixInventory;
+    
     public TileEntityFabTable() {
 
         super();
         inventory = new ItemStack[20];
+        craftMatrixInventory = new ItemStack[9]; //TODO: magic number
     }
 	
 	@Override
@@ -119,6 +123,21 @@ public class TileEntityFabTable extends TileEntity implements IInventory
                 inventory[slot] = ItemStack.loadItemStackFromNBT(tagCompound);
             }
         }
+        
+     // Read in the Crafting Matrix from NBT
+        NBTTagList craftingTag = nbtTagCompound.getTagList("CraftingMatrix");
+        craftMatrixInventory = new ItemStack[9]; //TODO: magic number
+        for (int i = 0; i < craftingTag.tagCount(); ++i) {
+            NBTTagCompound tagCompound = (NBTTagCompound) craftingTag.tagAt(i);
+            byte slot = tagCompound.getByte("Slot");
+            if (slot >= 0 && slot < craftMatrixInventory.length) {
+                craftMatrixInventory[slot] = ItemStack.loadItemStackFromNBT(tagCompound);
+            }
+        }
+
+        // Read craftingResult from NBT
+        NBTTagCompound tagCraftResult = nbtTagCompound.getCompoundTag("CraftingResult");
+        craftResult.setInventorySlotContents(0, ItemStack.loadItemStackFromNBT(tagCraftResult));
     }
 
     @Override
@@ -137,6 +156,21 @@ public class TileEntityFabTable extends TileEntity implements IInventory
             }
         }
         nbtTagCompound.setTag("Items", tagList);
+        
+        // Write Crafting Matrix to NBT
+        NBTTagList craftingTag = new NBTTagList();
+        for (int currentIndex = 0; currentIndex < craftMatrixInventory.length; ++currentIndex) {
+            if (craftMatrixInventory[currentIndex] != null) {
+                NBTTagCompound tagCompound = new NBTTagCompound();
+                tagCompound.setByte("Slot", (byte) currentIndex);
+                craftMatrixInventory[currentIndex].writeToNBT(tagCompound);
+                craftingTag.appendTag(tagCompound);
+            }
+        }
+        nbtTagCompound.setTag("CraftingMatrix", craftingTag);
+        
+        // Write craftingResult to NBT
+        nbtTagCompound.setTag("CraftingResult", craftResult.getStackInSlot(0).writeToNBT(new NBTTagCompound()));
 
     }
     
