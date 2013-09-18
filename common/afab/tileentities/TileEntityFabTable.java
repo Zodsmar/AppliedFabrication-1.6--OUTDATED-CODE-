@@ -170,7 +170,8 @@ public class TileEntityFabTable extends TileEntity implements IInventory
         nbtTagCompound.setTag("CraftingMatrix", craftingTag);
         
         // Write craftingResult to NBT
-        nbtTagCompound.setTag("CraftingResult", craftResult.getStackInSlot(0).writeToNBT(new NBTTagCompound()));
+        if (craftResult.getStackInSlot(0) != null)
+            nbtTagCompound.setTag("CraftingResult", craftResult.getStackInSlot(0).writeToNBT(new NBTTagCompound()));
 
     }
     
