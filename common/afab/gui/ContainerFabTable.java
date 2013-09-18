@@ -19,7 +19,7 @@ public class ContainerFabTable extends Container{
 	public InventoryCrafting craftMatrix = new InventoryCrafting(this, 3, 3);
 	public IInventory craftResult = new InventoryCraftResult();
 	private World worldObj;
-
+	
 	public TileEntityFabTable tileEntity;
 	FabTabSlot FabSlot;
 	@SuppressWarnings("unused")

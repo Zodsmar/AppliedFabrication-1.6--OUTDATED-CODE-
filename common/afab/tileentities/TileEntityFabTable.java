@@ -7,10 +7,17 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
 
+
+
 public class TileEntityFabTable extends TileEntity implements IInventory
 {
-
 	private ItemStack[] inventory;
+	
+    public TileEntityFabTable() {
+
+        super();
+        inventory = new ItemStack[20];
+    }
 	
 	@Override
 	public int getSizeInventory() {
@@ -20,24 +27,28 @@ public class TileEntityFabTable extends TileEntity implements IInventory
 	@Override
 	public ItemStack getStackInSlot(int i) {
 		
-		return inventory[i];
+		return this.inventory[i];
 	}
 
-	@Override
-	public ItemStack decrStackSize(int i, int count) {
-		ItemStack itemstack = getStackInSlot(i);
-		
-		if (itemstack != null) {
-			if (itemstack.stackSize <= count) {
-				setInventorySlotContents(i, null);
-			}else{
-				itemstack = itemstack.splitStack(count);
-				onInventoryChanged();
-			}
-		}
+    @Override
+    public ItemStack decrStackSize(int slot, int amount) {
 
-		return itemstack;
-	}
+        ItemStack itemStack = getStackInSlot(slot);
+        if (itemStack != null) {
+            if (itemStack.stackSize <= amount) {
+                setInventorySlotContents(slot, null);
+            }
+            else {
+                itemStack = itemStack.splitStack(amount);
+                if (itemStack.stackSize == 0) {
+                    setInventorySlotContents(slot, null);
+                }
+            }
+        }
+
+        return itemStack;
+    }
+
 
     @Override
     public ItemStack getStackInSlotOnClosing(int slot) {

@@ -3,6 +3,8 @@ package afab.blocks;
 import net.minecraft.block.Block;
 import afab.lib.IDs;
 import afab.lib.Names;
+import afab.tileentities.Entities;
+import afab.tileentities.TileEntityFabTable;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
@@ -20,5 +22,9 @@ public class Blocks{
 		public static void addNames() {
 			
 			LanguageRegistry.addName(fabTable, Names.fabTable_name);
+		}
+		
+		public static void registerTileEntities() {
+			GameRegistry.registerTileEntity(TileEntityFabTable.class, Entities.fabTable);
 		}
 }
