@@ -3,7 +3,7 @@ package afab.gui;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
-import net.minecraft.inventory.Slot;
+import net.minecraft.inventory.SlotCrafting;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.AchievementList;
@@ -11,7 +11,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.PlayerDestroyItemEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-public class FabTabSlot extends Slot{
+public class FabTabSlot extends SlotCrafting{
 
 	/** The craft matrix inventory linked to this result slot. */
 	private final IInventory craftMatrix;
@@ -24,7 +24,7 @@ public class FabTabSlot extends Slot{
 
 	public FabTabSlot(EntityPlayer par1EntityPlayer, IInventory par2IInventory, IInventory par3IInventory, int par4, int par5, int par6)
 	{
-	         super(par3IInventory, par4, par5, par6);
+	         super(par1EntityPlayer, par3IInventory, par3IInventory, par4, par5, par6);
 	         this.thePlayer = par1EntityPlayer;
 	         this.craftMatrix = par2IInventory;
 	}
