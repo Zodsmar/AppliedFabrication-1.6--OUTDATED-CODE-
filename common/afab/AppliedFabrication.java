@@ -15,6 +15,7 @@ import afab.lib.AFTab;
 import afab.lib.LogHelper;
 import afab.lib.ModInfo;
 import afab.network.PacketHandler;
+import afab.tileentities.TileEntityFabTable;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -24,6 +25,7 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.network.NetworkRegistry;
+import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 
@@ -73,7 +75,7 @@ public class AppliedFabrication {
 		LogHelper.log(Level.INFO, "Recipes loaded");
 
 		NetworkRegistry.instance().registerGuiHandler(ModInfo.MODNAME, guiHandler);
-		
+		GameRegistry.registerTileEntity(TileEntityFabTable.class, "Fabrication Table");
 
 	}
 

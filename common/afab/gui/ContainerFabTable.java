@@ -7,6 +7,7 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.InventoryCraftResult;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.inventory.Slot;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.world.World;
 import afab.tileentities.TileEntityFabTable;
@@ -75,6 +76,22 @@ public class ContainerFabTable extends Container{
 	         //addSlotToContainer(new Slot(par1InventoryPlayer, 36, 17, 36));
 
 
+	}
+	
+	public void onContainerClosed(EntityPlayer par1EntityPlayer)
+	{
+	         super.onContainerClosed(par1EntityPlayer);
+	         if (!this.worldObj.isRemote)
+	         {
+	                 for (int i = 0; i < 9; ++i)
+	                 {
+	                         ItemStack itemstack = this.craftMatrix.getStackInSlotOnClosing(i);
+	                         if (itemstack != null)
+	                         {
+	                                 par1EntityPlayer.dropPlayerItem(itemstack);
+	                         }
+	                 }
+	         }
 	}
 	
 	public void onCraftMatrixChanged(IInventory IInv)
