@@ -9,6 +9,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 import afab.AppliedFabrication;
+import afab.gui.GuiIDs;
 import afab.lib.ModInfo;
 import afab.lib.Names;
 import afab.tileentities.TileEntityFabTable;
@@ -32,16 +33,16 @@ public class FabricationTable extends BlockContainer{
 	private Icon tableIconSide;
 
 	@SideOnly(Side.CLIENT)
-	public void registerIcons(IconRegister par1IconRegister)
+	public void registerIcons(IconRegister iconRegister)
 	{
-	this.tableIconSide = par1IconRegister.registerIcon(ModInfo.MODID.toLowerCase() + ":table_side");
-	this.tableIconTop = par1IconRegister.registerIcon(ModInfo.MODID.toLowerCase() + ":table_top");
-	this.tableIconFront = par1IconRegister.registerIcon(ModInfo.MODID.toLowerCase() + ":table_front");
+	this.tableIconSide = iconRegister.registerIcon(ModInfo.MODID.toLowerCase() + ":table_side");
+	this.tableIconTop = iconRegister.registerIcon(ModInfo.MODID.toLowerCase() + ":table_top");
+	this.tableIconFront = iconRegister.registerIcon(ModInfo.MODID.toLowerCase() + ":table_front");
 	}
 	
 	@Override
 	public Icon getIcon(int side, int meta) {
-	if(side == 0) {
+	if(side == 0) {	
 	return Block.planks.getBlockTextureFromSide(side);
 	} else if(side == 1) {
 	return tableIconTop;
@@ -52,11 +53,11 @@ public class FabricationTable extends BlockContainer{
 	}
 	}
 	
-	public boolean onBlockActivated(World var1, int var2, int var3, int var4, EntityPlayer player, int var6, float var7, float var8, float var9)
+	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ)
 	{
 	         if (!player.isSneaking())
 	{
-	player.openGui(AppliedFabrication.instance, 0, var1, var2, var3, var4);
+	player.openGui(AppliedFabrication.instance, GuiIDs.FABTABGui, world, x, y, z);
 	return true;
 	}
 	else

@@ -34,11 +34,11 @@ public class ContainerFabTable extends Container{
 	
 	public ContainerFabTable(TileEntityFabTable tileFabTable, InventoryPlayer playerInv, World world, int x, int y, int z)
 	{
-	         this.worldObj = world;
-	         this.posX = x;
-	         this.posY = y;
-	         this.posZ = z;
-	         this.addSlotToContainer(new FabTabSlot(playerInv.player, this.craftMatrix, this.craftResult, 0, 143, 36));
+	         worldObj = world;
+	         posX = x;
+	         posY = y;
+	         posZ = z;
+	         addSlotToContainer(new FabTabSlot(playerInv.player, this.craftMatrix, this.craftResult, 0, 143, 36));
 	         int row;
 	         int col;
 	         tileEntity = tileFabTable;
@@ -52,18 +52,18 @@ public class ContainerFabTable extends Container{
 	                 }
 	         }
 	         
-	         for(int i = 0; i < 2; i++)
+	         for(int row1 = 0; row1 < 2; row1++)		
 	         {
-	             for(int j = 0; j < 9; j++)
-	            	 this.addSlotToContainer(new Slot(tileFabTable, j + i * 9, 8 + j * 18, 90 + i * 18));
+	             for(int col1 = 0; col1 < 9; col1++)
+	            	 this.addSlotToContainer(new Slot(tileFabTable, col1 + row1 * 9, 8 + col1 * 18, 90 + row1 * 18));
 
 	         }
 
 	         
-	         for(int i = 0; i < 3; i++)
+	         for(int row2 = 0; row2 < 3; row2++)
 	         {
-	             for(int j = 0; j < 9; j++)
-	            	 this.addSlotToContainer(new Slot(playerInv, j + i * 9 + 9, 8 + j * 18, 140 + i * 18));
+	             for(int col2 = 0; col2 < 9; col2++)
+	            	 this.addSlotToContainer(new Slot(playerInv, col2 + row2 * 9 + 9, 8 + col2 * 18, 140 + row2 * 18));
 
 	         }
 
@@ -86,9 +86,9 @@ public class ContainerFabTable extends Container{
 	
 
 
-	public boolean canInteractWith(EntityPlayer par1EntityPlayer)
+	public boolean canInteractWith(EntityPlayer entityPlayer)	
 	{
-	         return tileEntity.isUseableByPlayer(par1EntityPlayer);
+	         return tileEntity.isUseableByPlayer(entityPlayer);
 	        		
 	}
 
