@@ -11,6 +11,7 @@ import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.world.World;
 import afab.tileentities.TileEntityFabTable;
 
+@SuppressWarnings("unused")
 public class ContainerFabTable extends Container{
 
 	
@@ -22,11 +23,8 @@ public class ContainerFabTable extends Container{
 	
 	public TileEntityFabTable tileEntity;
 	FabTabSlot FabSlot;
-	@SuppressWarnings("unused")
 	private int posX;
-	@SuppressWarnings("unused")
 	private int posY;
-	@SuppressWarnings("unused")
 	private int posZ;
 
 
