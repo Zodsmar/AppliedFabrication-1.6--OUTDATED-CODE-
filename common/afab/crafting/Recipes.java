@@ -6,6 +6,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraftforge.oredict.OreDictionary;
+import afab.blocks.Blocks;
 import afab.items.Items;
 
 
@@ -178,6 +179,18 @@ public class Recipes {
 				Character.valueOf('1'), new ItemStack(Item.netherStar),
 				Character.valueOf('2'), new ItemStack(Block.blockDiamond),
 				Character.valueOf('3'), new ItemStack(Block.whiteStone)});
+		
+		CraftingManager.getInstance().addRecipe(new ItemStack(Blocks.fabTable, 1),
+				new Object[] {
+				"242",
+				"131",
+				"050",
+				Character.valueOf('0'), new ItemStack(Block.cobblestone),
+				Character.valueOf('1'), new ItemStack(Block.wood, 1, OreDictionary.WILDCARD_VALUE),
+				Character.valueOf('2'), new ItemStack(Block.planks, 1, OreDictionary.WILDCARD_VALUE),
+				Character.valueOf('3'), new ItemStack(Block.chest),
+				Character.valueOf('4'), new ItemStack(Block.workbench),
+				Character.valueOf('5'), new ItemStack(Items.hammer, 1, Short.MAX_VALUE)});
 		
 		//Shapeless Recipes
 		CraftingManager.getInstance().addShapelessRecipe(new ItemStack(Block.stoneBrick, 1),
