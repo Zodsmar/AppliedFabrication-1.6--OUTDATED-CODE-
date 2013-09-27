@@ -192,6 +192,28 @@ public class Recipes {
 				Character.valueOf('4'), new ItemStack(Block.workbench),
 				Character.valueOf('5'), new ItemStack(Items.hammer, 1, Short.MAX_VALUE)});
 		
+		CraftingManager.getInstance().addRecipe(new ItemStack(Blocks.fabTable, 1),
+				new Object[] {
+				"242",
+				"131",
+				"050",
+				Character.valueOf('0'), new ItemStack(Block.cobblestone),
+				Character.valueOf('1'), new ItemStack(Block.wood, 1, OreDictionary.WILDCARD_VALUE),
+				Character.valueOf('2'), new ItemStack(Block.planks, 1, OreDictionary.WILDCARD_VALUE),
+				Character.valueOf('3'), new ItemStack(Block.chest),
+				Character.valueOf('4'), new ItemStack(Block.workbench),
+				Character.valueOf('5'), new ItemStack(Items.mysticalHammer, 1, Short.MAX_VALUE)});
+		
+		CraftingManager.getInstance().addRecipe(new ItemStack(Item.feather, 1),
+				new Object[] {
+				"000",
+				"010",
+				"020",
+				Character.valueOf('0'), new ItemStack(Item.silk),
+				Character.valueOf('1'), new ItemStack(Block.cloth, 1, OreDictionary.WILDCARD_VALUE),
+				Character.valueOf('2'), new ItemStack(Item.stick)});
+		
+		
 		//Shapeless Recipes
 		CraftingManager.getInstance().addShapelessRecipe(new ItemStack(Block.stoneBrick, 1),
 				new Object[] {new ItemStack(Items.hammer, 1, Short.MAX_VALUE), 
@@ -298,6 +320,18 @@ public class Recipes {
 		CraftingManager.getInstance().addShapelessRecipe(new ItemStack(Items.meta, 1, 6),
 				new Object[] {new ItemStack(Item.bucketMilk), 
 			new ItemStack(Items.meta, 1, 5)});
+		
+		CraftingManager.getInstance().addShapelessRecipe(new ItemStack(Item.arrow, 8),
+				new Object[] {new ItemStack(Items.hammer, 1, Short.MAX_VALUE), 
+			new ItemStack(Item.flint),
+			new ItemStack(Item.stick), 
+			new ItemStack(Item.feather)});
+		
+		CraftingManager.getInstance().addShapelessRecipe(new ItemStack(Item.arrow, 16),
+				new Object[] {new ItemStack(Items.mysticalHammer, 1, Short.MAX_VALUE), 
+			new ItemStack(Item.flint),
+			new ItemStack(Item.stick), 
+			new ItemStack(Item.feather)});
 		
 		
 		
