@@ -293,7 +293,7 @@ public class Recipes {
 				new Object[] {new ItemStack(Item.dyePowder, 1, 15), 
 			new ItemStack(Block.dirt)});
 		
-		CraftingManager.getInstance().addShapelessRecipe(new ItemStack(Items.meta, 8, 4),
+		CraftingManager.getInstance().addShapelessRecipe(new ItemStack(Items.meta, 4, 4),
 				new Object[] {new ItemStack(Items.hammer, 1, Short.MAX_VALUE), 
 			new ItemStack(Item.ingotIron)});
 		
@@ -334,9 +334,8 @@ public class Recipes {
 			new ItemStack(Item.feather)});
 		
 		
-		
 		//Furnace Recipes
 		FurnaceRecipes.smelting().addSmelting(Items.meta.itemID, 5, new ItemStack(Item.bread, 1), 0.1F);
-		FurnaceRecipes.smelting().addSmelting(Items.meta.itemID, 6, new ItemStack(Item.bread, 3), 0.1F);
+		FurnaceRecipes.smelting().addSmelting(Items.meta.itemID, 6, new ItemStack(Item.bread, 3), 0.3F);
 	}
 }
