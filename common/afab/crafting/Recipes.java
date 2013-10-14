@@ -110,7 +110,7 @@ public class Recipes {
 				Character.valueOf('1'), new ItemStack(Item.silk),
 				Character.valueOf('2'), new ItemStack(Item.ingotIron)});
 		
-		CraftingManager.getInstance().addRecipe(new ItemStack(Item.field_111213_cg, 1),
+		CraftingManager.getInstance().addRecipe(new ItemStack(Item.horseArmorDiamond, 1),
 				new Object[] {
 				"010",
 				"020",
@@ -120,7 +120,7 @@ public class Recipes {
 				Character.valueOf('2'), new ItemStack(Items.meta, 1, 4),
 				Character.valueOf('3'), new ItemStack(Item.ingotIron)});
 		
-		CraftingManager.getInstance().addRecipe(new ItemStack(Item.field_111216_cf, 1),
+		CraftingManager.getInstance().addRecipe(new ItemStack(Item.horseArmorGold, 1),
 				new Object[] {
 				"010",
 				"020",
@@ -130,7 +130,7 @@ public class Recipes {
 				Character.valueOf('2'), new ItemStack(Items.meta, 1, 4),
 				Character.valueOf('3'), new ItemStack(Item.ingotIron)});
 		
-		CraftingManager.getInstance().addRecipe(new ItemStack(Item.field_111215_ce, 1),
+		CraftingManager.getInstance().addRecipe(new ItemStack(Item.horseArmorIron, 1),
 				new Object[] {
 				"010",
 				"020",

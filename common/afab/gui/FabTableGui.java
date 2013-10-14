@@ -1,12 +1,12 @@
 package afab.gui;
 
+import org.lwjgl.opengl.GL11;
+
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
-
-import org.lwjgl.opengl.GL11;
 
 import afab.lib.ModInfo;
 import afab.tileentities.TileEntityFabTable;
@@ -40,7 +40,7 @@ public class FabTableGui extends GuiContainer{
 	protected void drawGuiContainerBackgroundLayer(float f, int x, int y)
 	{
 	         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-	         this.mc.func_110434_K().func_110577_a(field_110422_t);
+	         this.mc.getTextureManager().bindTexture(field_110422_t);
 	         int k = (this.width - this.xSize) / 2;
 	         int l = (this.height - this.ySize) / 2;
 	         this.drawTexturedModalRect(k, l, 0, 0, this.xSize, this.ySize);
