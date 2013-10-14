@@ -5,9 +5,9 @@
 	<property file="build_number.properties" prefix="build_number"/>
 	
 	<target name="clean">
-		<delete file="${build.dir}\mcp\src\minecraft\mcmod.info" />
-		<delete dir="${build.dir}\mcp\src\minecraft\afab\" />
-		<delete dir="${build.dir}\mcp\reobf\minecraft" />
+		<delete file="${build.dir}\forge\mcp\src\minecraft\mcmod.info" />
+		<delete dir="${build.dir}\forge\mcp\src\minecraft\afab\" />
+		<delete dir="${build.dir}\forge\mcp\reobf\minecraft" />
 	</target>
 	
 	<target name="increment_build_number">
@@ -17,30 +17,30 @@
 	</target>
 	
 	<target name="prep">
-		<copy todir="${build.dir}\mcp\src\minecraft">
+		<copy todir="${build.dir}\forge\mcp\src\minecraft">
 			<fileset dir="${build.dir}\source\AppliedFabrication\common\" />
 		</copy>
 	</target>
 	
 	<target name="replace_tokens">
-		<replace dir="${build.dir}\mcp\src\minecraft" token="@VERSION@" value="${build.release.mod.version}" />
-		<replace dir="${build.dir}\mcp\src\minecraft" token="@BUILD_NUMBER@" value="${build_number.build_number}" />
+		<replace dir="${build.dir}\forge\mcp\src\minecraft" token="@VERSION@" value="${build.release.mod.version}" />
+		<replace dir="${build.dir}\forge\mcp\src\minecraft" token="@BUILD_NUMBER@" value="${build_number.build_number}" />
 	</target>
 	
 	<target name="recompile">
-		<exec dir="${build.dir}\mcp" executable="cmd" osfamily="windows">
+		<exec dir="${build.dir}\forge\mcp" executable="cmd" osfamily="windows">
 			<arg line="/c recompile.bat" />
 		</exec>
-		<exec dir="${build.dir}\mcp" executable="bash" osfamily="unix">
+		<exec dir="${build.dir}\forge\mcp" executable="bash" osfamily="unix">
 			<arg line="recompile.sh" />
 		</exec>
 	</target>
 	
 	<target name="reobfuscate">
-		<exec dir="${build.dir}\mcp" executable="cmd" osfamily="windows">
+		<exec dir="${build.dir}\forge\mcp" executable="cmd" osfamily="windows">
 			<arg line="/c reobfuscate_srg.bat" />
 		</exec>
-		<exec dir="${build.dir}\mcp" executable="bash" osfamily="unix">
+		<exec dir="${build.dir}\forge\mcp" executable="bash" osfamily="unix">
 			<arg line="reobfuscate_srg.sh" />
 		</exec>
 	</target>
@@ -60,8 +60,8 @@
 		<!-- Build the jar -->
 		<mkdir dir="${build.dir.release}\${build.release.minecraft.version}\${build.release.mod.version}" />
 		<jar destfile="${build.dir.release}\${build.release.minecraft.version}\${build.release.mod.version}\AppliedFabrication-${build.release.mod.version}-${build_number.build_number}.jar">
-			<fileset dir="${build.dir}\mcp\src\minecraft\" includes="mcmod.info" />
-			<fileset dir="${build.dir}\mcp\reobf\minecraft" />
+			<fileset dir="${build.dir}\forge\mcp\src\minecraft\" includes="mcmod.info" />
+			<fileset dir="${build.dir}\forge\mcp\reobf\minecraft" />
 			<fileset dir="${build.dir}\source\AppliedFabrication\resources" excludes="**/xcf/**" />
 		</jar>
 		
@@ -81,8 +81,8 @@
 		<!-- Build the jar -->
 		<mkdir dir="${build.dir.release}\${build.release.minecraft.version}\${build.release.mod.version}" />
 		<jar destfile="${build.dir.release}\${build.release.minecraft.version}\${build.release.mod.version}\AppliedFabrication-universal${build.release.mod.version}-${build_number.build_number}.jar">
-			<fileset dir="${build.dir}\mcp\src\minecraft\" includes="mcmod.info" />
-			<fileset dir="${build.dir}\mcp\reobf\minecraft" />
+			<fileset dir="${build.dir}\forge\mcp\src\minecraft\" includes="mcmod.info" />
+			<fileset dir="${build.dir}\forge\mcp\reobf\minecraft" />
 			<fileset dir="${build.dir}\source\AppliedFabrication\resources" excludes="**/xcf/**" />
 		</jar>
 		
