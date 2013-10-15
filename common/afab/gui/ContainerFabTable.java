@@ -113,6 +113,12 @@ public class ContainerFabTable extends Container{
 	         return tileEntity.isUseableByPlayer(entityPlayer);
 	        		
 	}
+	
+	public ItemStack transferStackInSlot(EntityPlayer entityPlayer, int par2){
+		return null;
+		
+	}
+ 
 
 	
 

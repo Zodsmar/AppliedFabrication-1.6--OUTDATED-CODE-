@@ -12,11 +12,12 @@ public class ConfigHandler {
 		Configuration config = new Configuration(configFile);
 
 		config.load();
-
+		
 		IDs.hammer_actual = config.getItem(Names.hammer_name, IDs.hammer_default).getInt() - 256;
 		IDs.metaItems_actual = config.get("Components", "ComponentsID", 4000).getInt() - 256;
 		IDs.mysticalHammer_actual = config.getItem(Names.mysticalHammer_name, IDs.mysticalHammer_default).getInt() - 256;
 		IDs.fabTable_actual = config.getBlock(Names.fabTable_name, IDs.fabTable_default).getInt();
+ 
 		config.save();
 		}
 

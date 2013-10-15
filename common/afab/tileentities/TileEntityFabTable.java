@@ -19,7 +19,7 @@ public class TileEntityFabTable extends TileEntity implements IInventory
     public TileEntityFabTable() {
 
         super();
-        inventory = new ItemStack[20];
+        inventory = new ItemStack[50];
         craftMatrixInventory = new ItemStack[9]; //TODO: magic number
     }
 	
