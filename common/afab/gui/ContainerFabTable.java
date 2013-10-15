@@ -114,7 +114,9 @@ public class ContainerFabTable extends Container{
 	        		
 	}
 	
-	public ItemStack transferStackInSlot(EntityPlayer entityPlayer, int par2){
+	public ItemStack transferStackInSlot(EntityPlayer entityPlayer, int par2)
+	{
+		// TODO Shift-click
 		return null;
 		
 	}
