@@ -328,14 +328,14 @@ public class Recipes {
 	
 	public static ItemStack getHammerRecipe(int id, int meta) {
 		for (Entry<HammerRecipe, ItemStack> entry : transformBlocks.entrySet())
-		    if(entry.getKey().id == id && entry.getKey().meta == meta)
+		    if(entry.getKey().id == id && (entry.getKey().meta == meta || entry.getKey().igroneData))
 		    	return entry.getValue();
 		return null;
 	}
 	
 	public static boolean getIgroneMeta(int id, int meta) {
 		for (HammerRecipe recipe : transformBlocks.keySet())
-		    if(recipe.id == id && recipe.meta == meta)
+		    if(recipe.id == id && (recipe.meta == meta || recipe.igroneData))
 		    	return recipe.igroneData;
 		return false;
 	}
