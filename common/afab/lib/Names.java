@@ -5,22 +5,28 @@ public class Names {
 	
 	public static final String metaItems = "MetaItems";
 	public static final String[] metaItems_unlocalizedName = {
-	"hammerHead",
-	"rod",
-	"divineRod",
-	"infusedHead",
-	"chain",
-	"flour",
-	"dough"
+		"hammerHead",
+		"rod",
+		"divineRod",
+		"infusedHead",
+		"chain",
+		"flour",
+		"dough",
+		"fabUpgradePlans",
+		"fabUpgradeRedstone",
+		"fabUpgradeBuffer"
 	};
 	public static final String[] metaItems_name = {
-	"Hammer Head",
-	"Rod",
-	"Divine Rod",
-	"Infused Head",
-	"Chain",
-	"Flour",
-	"Dough",
+		"Hammer Head",
+		"Rod",
+		"Divine Rod",
+		"Infused Head",
+		"Chain",
+		"Flour",
+		"Dough",
+		"UPGRADE: Plans",
+		"UPGRADE: Redstone Active",
+		"UPGRADE: Crafting Buffer"
 	};
 	
 	public static final String hammer_name = "Hammer";
