@@ -225,7 +225,11 @@ public class Recipes {
 		addRecipe(new HammerRecipe(Block.stoneBrick, 0), 			new HammerRecipe(Block.stoneBrick, 1));
 		addRecipe(new HammerRecipe(Block.stoneBrick, 1), 			new HammerRecipe(Block.stoneBrick, 2));
 		addRecipe(new HammerRecipe(Block.stoneBrick, 2), 			new HammerRecipe(Block.stoneBrick, 3));
-		addRecipe(new HammerRecipe(Block.stoneBrick, 3), 			new HammerRecipe(Block.stoneBrick, 0));
+		addRecipe(new HammerRecipe(Block.stoneBrick, 3), 			new HammerRecipe(Block.cobblestone));
+		
+		addRecipe(new HammerRecipe(Block.dirt), 			new HammerRecipe(Block.gravel));
+		addRecipe(new HammerRecipe(Block.gravel), 			new HammerRecipe(Block.dirt));
+
 		
 		addRecipe(new HammerRecipe(Block.sand), 					new HammerRecipe(Block.sandStone, 0));
 		addRecipe(new HammerRecipe(Block.sandStone, 0), 			new HammerRecipe(Block.sandStone, 1));
@@ -233,6 +237,89 @@ public class Recipes {
 		addRecipe(new HammerRecipe(Block.sandStone, 2), 			new HammerRecipe(Block.sandStone, 0));
 		
 		addRecipe(new HammerRecipe(Item.leather),					new HammerRecipe(Item.rottenFlesh), new HammerRecipe(Item.silk));
+		
+		addRecipe(new HammerRecipe(Block.cloth, 0), 				new HammerRecipe(Block.cloth, 1));
+		addRecipe(new HammerRecipe(Block.cloth, 1), 				new HammerRecipe(Block.cloth, 2));
+		addRecipe(new HammerRecipe(Block.cloth, 2), 				new HammerRecipe(Block.cloth, 3));
+		addRecipe(new HammerRecipe(Block.cloth, 3), 				new HammerRecipe(Block.cloth, 4));
+		addRecipe(new HammerRecipe(Block.cloth, 4), 				new HammerRecipe(Block.cloth, 5));
+		addRecipe(new HammerRecipe(Block.cloth, 5), 				new HammerRecipe(Block.cloth, 6));
+		addRecipe(new HammerRecipe(Block.cloth, 6), 				new HammerRecipe(Block.cloth, 7));
+		addRecipe(new HammerRecipe(Block.cloth, 7), 				new HammerRecipe(Block.cloth, 8));
+		addRecipe(new HammerRecipe(Block.cloth, 8), 				new HammerRecipe(Block.cloth, 9));
+		addRecipe(new HammerRecipe(Block.cloth, 9), 				new HammerRecipe(Block.cloth, 10));
+		addRecipe(new HammerRecipe(Block.cloth, 10), 				new HammerRecipe(Block.cloth, 11));
+		addRecipe(new HammerRecipe(Block.cloth, 11), 				new HammerRecipe(Block.cloth, 12));
+		addRecipe(new HammerRecipe(Block.cloth, 12), 				new HammerRecipe(Block.cloth, 13));
+		addRecipe(new HammerRecipe(Block.cloth, 13), 				new HammerRecipe(Block.cloth, 14));
+		addRecipe(new HammerRecipe(Block.cloth, 14), 				new HammerRecipe(Block.cloth, 15));
+		addRecipe(new HammerRecipe(Block.cloth, 15), 				new HammerRecipe(Block.cloth, 0));
+
+		addRecipe(new HammerRecipe(Block.wood, 0), 				new HammerRecipe(Block.wood, 1));
+		addRecipe(new HammerRecipe(Block.wood, 1), 				new HammerRecipe(Block.wood, 2));
+		addRecipe(new HammerRecipe(Block.wood, 2), 				new HammerRecipe(Block.wood, 3));
+		addRecipe(new HammerRecipe(Block.wood, 3), 				new HammerRecipe(Block.wood, 0));
+		addRecipe(new HammerRecipe(Block.wood, 4), 				new HammerRecipe(Block.wood, 5));
+		addRecipe(new HammerRecipe(Block.wood, 5), 				new HammerRecipe(Block.wood, 6));
+		addRecipe(new HammerRecipe(Block.wood, 6), 				new HammerRecipe(Block.wood, 7));
+		addRecipe(new HammerRecipe(Block.wood, 7), 				new HammerRecipe(Block.wood, 4));
+		addRecipe(new HammerRecipe(Block.wood, 8), 				new HammerRecipe(Block.wood, 9));
+		addRecipe(new HammerRecipe(Block.wood, 9), 				new HammerRecipe(Block.wood, 10));
+		addRecipe(new HammerRecipe(Block.wood, 10), 				new HammerRecipe(Block.wood, 11));
+		addRecipe(new HammerRecipe(Block.wood, 11), 				new HammerRecipe(Block.wood, 8));
+		addRecipe(new HammerRecipe(Block.wood, 12), 				new HammerRecipe(Block.wood, 13));
+		addRecipe(new HammerRecipe(Block.wood, 13), 				new HammerRecipe(Block.wood, 14));
+		addRecipe(new HammerRecipe(Block.wood, 14), 				new HammerRecipe(Block.wood, 15));
+		addRecipe(new HammerRecipe(Block.wood, 15), 				new HammerRecipe(Block.wood, 12));
+		
+		addRecipe(new HammerRecipe(Block.planks, 0), 				new HammerRecipe(Block.planks, 1));
+		addRecipe(new HammerRecipe(Block.planks, 1), 				new HammerRecipe(Block.planks, 2));
+		addRecipe(new HammerRecipe(Block.planks, 2), 				new HammerRecipe(Block.planks, 3));
+		addRecipe(new HammerRecipe(Block.planks, 3), 				new HammerRecipe(Block.planks, 0));
+		
+		addRecipe(new HammerRecipe(Block.stairsWoodOak), 				new HammerRecipe(Block.stairsWoodSpruce));
+		addRecipe(new HammerRecipe(Block.stairsWoodSpruce), 				new HammerRecipe(Block.stairsWoodBirch));
+		addRecipe(new HammerRecipe(Block.stairsWoodBirch), 				new HammerRecipe(Block.stairsWoodJungle));
+		addRecipe(new HammerRecipe(Block.stairsWoodJungle), 				new HammerRecipe(Block.stairsWoodOak));
+		
+		addRecipe(new HammerRecipe(Block.woodSingleSlab, 0), 				new HammerRecipe(Block.woodSingleSlab, 1));
+		addRecipe(new HammerRecipe(Block.woodSingleSlab, 1), 				new HammerRecipe(Block.woodSingleSlab, 2));
+		addRecipe(new HammerRecipe(Block.woodSingleSlab, 2), 				new HammerRecipe(Block.woodSingleSlab, 3));
+		addRecipe(new HammerRecipe(Block.woodSingleSlab, 3), 				new HammerRecipe(Block.woodSingleSlab, 0));
+		
+		addRecipe(new HammerRecipe(Block.carpet, 0), 				new HammerRecipe(Block.carpet, 1));
+		addRecipe(new HammerRecipe(Block.carpet, 1), 				new HammerRecipe(Block.carpet, 2));
+		addRecipe(new HammerRecipe(Block.carpet, 2), 				new HammerRecipe(Block.carpet, 3));
+		addRecipe(new HammerRecipe(Block.carpet, 3), 				new HammerRecipe(Block.carpet, 4));
+		addRecipe(new HammerRecipe(Block.carpet, 4), 				new HammerRecipe(Block.carpet, 5));
+		addRecipe(new HammerRecipe(Block.carpet, 5), 				new HammerRecipe(Block.carpet, 6));
+		addRecipe(new HammerRecipe(Block.carpet, 6), 				new HammerRecipe(Block.carpet, 7));
+		addRecipe(new HammerRecipe(Block.carpet, 7), 				new HammerRecipe(Block.carpet, 8));
+		addRecipe(new HammerRecipe(Block.carpet, 8), 				new HammerRecipe(Block.carpet, 9));
+		addRecipe(new HammerRecipe(Block.carpet, 9), 				new HammerRecipe(Block.carpet, 10));
+		addRecipe(new HammerRecipe(Block.carpet, 10), 				new HammerRecipe(Block.carpet, 11));
+		addRecipe(new HammerRecipe(Block.carpet, 11), 				new HammerRecipe(Block.carpet, 12));
+		addRecipe(new HammerRecipe(Block.carpet, 12), 				new HammerRecipe(Block.carpet, 13));
+		addRecipe(new HammerRecipe(Block.carpet, 13), 				new HammerRecipe(Block.carpet, 14));
+		addRecipe(new HammerRecipe(Block.carpet, 14), 				new HammerRecipe(Block.carpet, 15));
+		addRecipe(new HammerRecipe(Block.carpet, 15), 				new HammerRecipe(Block.carpet, 0));
+		
+		addRecipe(new HammerRecipe(Block.stainedClay, 0), 				new HammerRecipe(Block.stainedClay, 1));
+		addRecipe(new HammerRecipe(Block.stainedClay, 1), 				new HammerRecipe(Block.stainedClay, 2));
+		addRecipe(new HammerRecipe(Block.stainedClay, 2), 				new HammerRecipe(Block.stainedClay, 3));
+		addRecipe(new HammerRecipe(Block.stainedClay, 3), 				new HammerRecipe(Block.stainedClay, 4));
+		addRecipe(new HammerRecipe(Block.stainedClay, 4), 				new HammerRecipe(Block.stainedClay, 5));
+		addRecipe(new HammerRecipe(Block.stainedClay, 5), 				new HammerRecipe(Block.stainedClay, 6));
+		addRecipe(new HammerRecipe(Block.stainedClay, 6), 				new HammerRecipe(Block.stainedClay, 7));
+		addRecipe(new HammerRecipe(Block.stainedClay, 7), 				new HammerRecipe(Block.stainedClay, 8));
+		addRecipe(new HammerRecipe(Block.stainedClay, 8), 				new HammerRecipe(Block.stainedClay, 9));
+		addRecipe(new HammerRecipe(Block.stainedClay, 9), 				new HammerRecipe(Block.stainedClay, 10));
+		addRecipe(new HammerRecipe(Block.stainedClay, 10), 				new HammerRecipe(Block.stainedClay, 11));
+		addRecipe(new HammerRecipe(Block.stainedClay, 11), 				new HammerRecipe(Block.stainedClay, 12));
+		addRecipe(new HammerRecipe(Block.stainedClay, 12), 				new HammerRecipe(Block.stainedClay, 13));
+		addRecipe(new HammerRecipe(Block.stainedClay, 13), 				new HammerRecipe(Block.stainedClay, 14));
+		addRecipe(new HammerRecipe(Block.stainedClay, 14), 				new HammerRecipe(Block.stainedClay, 15));
+		addRecipe(new HammerRecipe(Block.stainedClay, 15), 				new HammerRecipe(Block.stainedClay, 0));	
 		
 		//Furnace Recipes
 		FurnaceRecipes.smelting().addSmelting(Items.meta.itemID, 5, new ItemStack(Item.bread, 1), 0.1F);
