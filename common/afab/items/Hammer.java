@@ -2,19 +2,12 @@ package afab.items;
 
 
 
-import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemBlock;
-import net.minecraft.item.ItemBlockWithMetadata;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.CraftingManager;
-import net.minecraft.item.crafting.ShapelessRecipes;
 import net.minecraft.world.World;
-import net.minecraftforge.oredict.OreDictionary;
 import afab.AppliedFabrication;
 import afab.crafting.Recipes;
-import afab.crafting.Recipes.HammerRecipe;
 import afab.lib.ModInfo;
 import afab.lib.Names;
 import cpw.mods.fml.relauncher.Side;
@@ -53,7 +46,7 @@ public class Hammer extends ItemCraftingDamage{
 			par3World.spawnParticle(paricle, par4 + 1, par5 + 1D, par6 + 1, 0D, 0D, 0D);
 			par3World.spawnParticle(paricle, par4, par5 + 1D, par6 + 1, 0D, 0D, 0D);
 			
-			par3World.setBlock(par4, par5, par6, output.itemID, output.getItemDamage(), 2);
+			par3World.setBlock(par4, par5, par6, output.itemID, Recipes.getIgroneMeta(id, meta) ? meta : output.getItemDamage(), 2);
 			
 			if(!par2EntityPlayer.capabilities.isCreativeMode)
 				par1ItemStack.damageItem(2, par2EntityPlayer);
@@ -64,6 +57,7 @@ public class Hammer extends ItemCraftingDamage{
 		return false;
 	}
 	
+	@Override
 	public boolean isFull3D()
     {
         return true;

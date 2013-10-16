@@ -32,23 +32,13 @@ public class MetaItems extends Item{
 		@SideOnly(Side.CLIENT)
 		public static Icon[] icons;
 
-		private static final String[] ICON = {
-		"hammerHead",
-		"rod",
-		"divineRod",
-		"infusedHead",
-		"chain",
-		"flour",
-		"dough"
-		};
-
 		@Override
 		@SideOnly(Side.CLIENT)
 		public void registerIcons(IconRegister icon) {
-		icons = new Icon[ICON.length];
+		icons = new Icon[Names.metaItems_unlocalizedName.length];
 
 		for(int i = 0; i < icons.length; i++) {
-		icons[i] = icon.registerIcon(ModInfo.MODID.toLowerCase() + ":" + ICON[i]);
+		icons[i] = icon.registerIcon(ModInfo.MODID.toLowerCase() + ":" + Names.metaItems_unlocalizedName[i]);
 		}
 		}
 
@@ -68,6 +58,7 @@ public class MetaItems extends Item{
 		}
 		
 
+		@Override
 		@SuppressWarnings({"unchecked", "rawtypes"})
 		@SideOnly(Side.CLIENT)
 		public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean i)
