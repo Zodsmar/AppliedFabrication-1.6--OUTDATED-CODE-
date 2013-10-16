@@ -64,10 +64,8 @@ public class ContainerFabTable extends Container{
 	         
 	         for(int row2 = 0; row2 < 3; row2++)
 	         {
-	             for(int col2 = 0; col2 < 9; col2++) {
+	             for(int col2 = 0; col2 < 9; col2++)
 	            	 this.addSlotToContainer(new Slot(playerInv, col2 + row2 * 9 + 9, 8 + col2 * 18, 140 + row2 * 18));
-	             	System.out.println(col2 + row2 * 9 + 9);
-	             }
 	         }
 
 	         for (row = 0; row < 9; ++row)
