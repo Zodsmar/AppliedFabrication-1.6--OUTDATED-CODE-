@@ -141,7 +141,7 @@ public class ContainerFabTable extends Container{
                 {
                     return null;
                 }
-            }else if(par2 >= 10 && par2 <= 27 || par2 < 9) {
+            }else if(par2 >= 10 && par2 <= 27 || par2 <= 9) {
             	if (!this.mergeItemStack(itemstack1, 28, 63, false))
                 {
                     return null;
