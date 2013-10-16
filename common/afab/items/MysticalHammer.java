@@ -49,7 +49,7 @@ protected MysticalHammer(int par1) {
 			par3World.spawnParticle(paricle, par4 + 1, par5 + 1D, par6 + 1, 0D, 0D, 0D);
 			par3World.spawnParticle(paricle, par4, par5 + 1D, par6 + 1, 0D, 0D, 0D);
 			
-			par3World.setBlock(par4, par5, par6, output.itemID, output.getItemDamage(), 2);
+			par3World.setBlock(par4, par5, par6, output.itemID, Recipes.getIgroneMeta(id, meta) ? meta : output.getItemDamage(), 2);
 			
 			return true;
 		}
