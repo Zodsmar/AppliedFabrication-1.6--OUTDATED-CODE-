@@ -27,7 +27,7 @@ public class ContainerFabTable extends Container{
 
     /** The crafting matrix inventory (3x3). */          //container, width, length
     public InventoryCrafting craftMatrix = new InventoryCrafting(this, 3, 3);
-
+    private FabTabSlot fabTabSlot;
 
 	
 	
@@ -37,7 +37,8 @@ public class ContainerFabTable extends Container{
 	         posX = x;
 	         posY = y;
 	         posZ = z;
-	         addSlotToContainer(new FabTabSlot(playerInv.player, this.craftMatrix, tileFabTable.craftResult, 0, 143, 36));
+	         fabTabSlot = new FabTabSlot(playerInv.player, this.craftMatrix, tileFabTable.craftResult, 0, 143, 36);
+	         addSlotToContainer(fabTabSlot);
 	         int row;
 	         int col;
 	         tileEntity = tileFabTable;
@@ -63,9 +64,10 @@ public class ContainerFabTable extends Container{
 	         
 	         for(int row2 = 0; row2 < 3; row2++)
 	         {
-	             for(int col2 = 0; col2 < 9; col2++)
+	             for(int col2 = 0; col2 < 9; col2++) {
 	            	 this.addSlotToContainer(new Slot(playerInv, col2 + row2 * 9 + 9, 8 + col2 * 18, 140 + row2 * 18));
-
+	             	System.out.println(col2 + row2 * 9 + 9);
+	             }
 	         }
 
 	         for (row = 0; row < 9; ++row)
@@ -116,9 +118,49 @@ public class ContainerFabTable extends Container{
 	
 	public ItemStack transferStackInSlot(EntityPlayer entityPlayer, int par2)
 	{
-		// TODO Shift-click
-		return null;
-		
+		ItemStack itemstack = null;
+        Slot slot = (Slot)this.inventorySlots.get(par2);
+        
+        if (slot != null && slot.getHasStack())
+        {
+        	ItemStack itemstack1 = slot.getStack();
+            itemstack = itemstack1.copy();
+
+            if(par2 == 0) {
+                if (!this.mergeItemStack(itemstack1, 28, 64, false))
+                {
+                    return null;
+                }else{
+                	slot.putStack((ItemStack)null);
+                }
+                
+                fabTabSlot.onPickupFromSlot(entityPlayer, itemstack);
+            	this.onCraftMatrixChanged(this.craftMatrix);
+            	
+            	return itemstack;
+            }else if(par2 >= 28 && par2 <= 63) {
+            	if (!this.mergeItemStack(itemstack1, 10, 27, false))
+                {
+                    return null;
+                }
+            }else if(par2 >= 10 && par2 <= 27) {
+            	if (!this.mergeItemStack(itemstack1, 28, 63, false))
+                {
+                    return null;
+                }
+            }
+            
+            if (itemstack1.stackSize == 0)
+            {
+                slot.putStack((ItemStack)null);
+            }
+            else
+            {
+                slot.onSlotChanged();
+            }
+        }
+
+        return itemstack;
 	}
  
 
