@@ -1,7 +1,7 @@
 package afab.lib;
 
-import afab.items.Items;
 import net.minecraft.creativetab.CreativeTabs;
+import afab.items.Items;
 
 public class AFTab extends CreativeTabs{
 

@@ -30,6 +30,7 @@ protected MysticalHammer(int par1) {
 		itemIcon = icon.registerIcon(ModInfo.MODID.toLowerCase() + ":" + Names.mysticalHammer_unlocalizedname);
 	}
 	
+	@Override
 	public boolean hasEffect(ItemStack par1ItemStack) {
 		return true;
 	}
@@ -57,13 +58,15 @@ protected MysticalHammer(int par1) {
 		return false;
 	}
 	
+	@Override
 	@SuppressWarnings({"unchecked", "rawtypes"})
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean i)
 	{
 	list.add("\u00A76An UNBREAKABLE Hammer!");
 	}
 
-	 public boolean isFull3D()
+	 @Override
+	public boolean isFull3D()
     {
         return true;
     }

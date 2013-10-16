@@ -1,12 +1,12 @@
 package afab.gui;
 
-import org.lwjgl.opengl.GL11;
-
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
+
+import org.lwjgl.opengl.GL11;
 
 import afab.lib.ModInfo;
 import afab.tileentities.TileEntityFabTable;
@@ -29,6 +29,7 @@ public class FabTableGui extends GuiContainer{
 	/**
 	         * Draw the foreground layer for the GuiContainer (everything in front of the items)
 	         */
+	@Override
 	protected void drawGuiContainerForegroundLayer(int x, int z)	
 	{
 	         this.fontRenderer.drawString(StatCollector.translateToLocal("\u00a71Fabrication Table"), 48, 6, 4210752);
@@ -37,6 +38,7 @@ public class FabTableGui extends GuiContainer{
 	/**
 	         * Draw the background layer for the GuiContainer (everything behind the items)
 	         */
+	@Override
 	protected void drawGuiContainerBackgroundLayer(float f, int x, int y)
 	{
 	         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);

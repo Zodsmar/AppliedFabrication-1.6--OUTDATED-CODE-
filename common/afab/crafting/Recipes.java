@@ -1,7 +1,6 @@
 package afab.crafting;
 
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Map.Entry;
 
 import net.minecraft.block.Block;

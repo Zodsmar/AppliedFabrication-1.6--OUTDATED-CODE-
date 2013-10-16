@@ -68,6 +68,7 @@ public class MetaItems extends Item{
 		}
 		
 
+		@Override
 		@SuppressWarnings({"unchecked", "rawtypes"})
 		@SideOnly(Side.CLIENT)
 		public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean i)

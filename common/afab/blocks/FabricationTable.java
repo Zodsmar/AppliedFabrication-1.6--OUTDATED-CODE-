@@ -39,6 +39,7 @@ public class FabricationTable extends BlockContainer{
 	private Icon tableIconSide;
     private Random rand = new Random();
 	
+	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister iconRegister)
 	{

@@ -88,7 +88,8 @@ public class ContainerFabTable extends Container{
     }
 	
 
-    public void onContainerClosed(EntityPlayer par1EntityPlayer)
+    @Override
+	public void onContainerClosed(EntityPlayer par1EntityPlayer)
 	{
 	         super.onContainerClosed(par1EntityPlayer);
 	         saveCraftingMatrix();
@@ -101,19 +102,22 @@ public class ContainerFabTable extends Container{
     }
 
 
-    public void onCraftMatrixChanged(IInventory IInv)
+    @Override
+	public void onCraftMatrixChanged(IInventory IInv)
 	{	
 	    tileEntity.craftResult.setInventorySlotContents(0, CraftingManager.getInstance().findMatchingRecipe(this.craftMatrix, this.worldObj));
 	}
 	
 
 
+	@Override
 	public boolean canInteractWith(EntityPlayer entityPlayer)	
 	{
 	         return tileEntity.isUseableByPlayer(entityPlayer);
 	        		
 	}
 	
+	@Override
 	public ItemStack transferStackInSlot(EntityPlayer entityPlayer, int par2)
 	{
 		ItemStack itemstack = null;
