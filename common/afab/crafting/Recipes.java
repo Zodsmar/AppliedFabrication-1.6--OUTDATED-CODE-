@@ -217,7 +217,7 @@ public class Recipes {
 				Character.valueOf('2'), new ItemStack(Item.stick)});
 		
 		
-		//Shapeless Recipes
+		//Shapeless Hammer Recipes
 		addRecipe(new HammerRecipe(Block.cobblestone), 				new HammerRecipe(Block.stone));
 		addRecipe(new HammerRecipe(Block.stone), 					new HammerRecipe(Block.stoneBrick));
 		
@@ -319,6 +319,7 @@ public class Recipes {
 		addRecipe(new HammerRecipe(Block.stainedClay, 13), 			new HammerRecipe(Block.stainedClay, 14));
 		addRecipe(new HammerRecipe(Block.stainedClay, 14), 			new HammerRecipe(Block.stainedClay, 15));
 		addRecipe(new HammerRecipe(Block.stainedClay, 15), 			new HammerRecipe(Block.stainedClay, 0));	
+		
 		
 		//Furnace Recipes
 		FurnaceRecipes.smelting().addSmelting(Items.meta.itemID, 5, new ItemStack(Item.bread, 1), 0.1F);
