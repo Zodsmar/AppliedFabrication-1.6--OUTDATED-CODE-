@@ -34,13 +34,6 @@ public class Recipes {
 				Character.valueOf('1'), new ItemStack(Item.stick),
 				Character.valueOf('0'), new ItemStack(Block.wood, 1, OreDictionary.WILDCARD_VALUE)});
 		
-		CraftingManager.getInstance().addRecipe(new ItemStack(Items.hammer),
-				new Object[] {
-				"   ",
-				" 0 ",
-				" 1 ",
-				Character.valueOf('0'), new ItemStack(Items.meta, 1, 0),
-				Character.valueOf('1'), new ItemStack(Items.meta, 1, 1)});
 		
 		CraftingManager.getInstance().addRecipe(new ItemStack(Block.cobblestoneMossy),
 				new Object[] {
@@ -216,8 +209,77 @@ public class Recipes {
 				Character.valueOf('1'), new ItemStack(Block.cloth, 1, OreDictionary.WILDCARD_VALUE),
 				Character.valueOf('2'), new ItemStack(Item.stick)});
 		
-		
 		//Shapeless Recipes
+		
+		CraftingManager.getInstance().addShapelessRecipe(new ItemStack(Item.arrow, 8),
+				new Object[] {new ItemStack(Items.hammer, 1, Short.MAX_VALUE), 
+				new ItemStack(Item.flint),
+				new ItemStack(Item.stick), 
+				new ItemStack(Item.feather)});
+			 
+		CraftingManager.getInstance().addShapelessRecipe(new ItemStack(Item.arrow, 16),
+				new Object[] {new ItemStack(Items.mysticalHammer, 1, Short.MAX_VALUE), 
+				new ItemStack(Item.flint),
+				new ItemStack(Item.stick), 
+				new ItemStack(Item.feather)}); 
+		
+		CraftingManager.getInstance().addShapelessRecipe(new ItemStack(Items.meta, 1, 5),
+				new Object[] {new ItemStack(Items.mysticalHammer, 1, Short.MAX_VALUE), 
+				new ItemStack(Item.wheat)}); 
+		
+		CraftingManager.getInstance().addShapelessRecipe(new ItemStack(Items.meta, 1, 5),
+				new Object[] {new ItemStack(Items.hammer, 1, Short.MAX_VALUE), 
+				new ItemStack(Item.wheat)}); 
+		
+		CraftingManager.getInstance().addShapelessRecipe(new ItemStack(Items.meta, 1, 6),
+				new Object[] {new ItemStack(Items.meta, 1, 5), 
+				new ItemStack(Item.bucketMilk)}); 
+		
+		CraftingManager.getInstance().addShapelessRecipe(new ItemStack(Item.leather),
+				new Object[] {new ItemStack(Item.rottenFlesh, 1), 
+				new ItemStack(Item.silk, 1),
+				new ItemStack(Items.hammer, 1, Short.MAX_VALUE)}); 
+		
+		CraftingManager.getInstance().addShapelessRecipe(new ItemStack(Item.leather),
+				new Object[] {new ItemStack(Item.rottenFlesh, 1), 
+				new ItemStack(Item.silk, 1),
+				new ItemStack(Items.mysticalHammer, 1, Short.MAX_VALUE)}); 
+		
+		CraftingManager.getInstance().addShapelessRecipe(new ItemStack(Items.mysticalHammer),
+				new Object[] {new ItemStack(Items.mysticalHammer, 1, Short.MAX_VALUE), 
+				new ItemStack(Items.meta, 1, 2), 
+				new ItemStack(Items.meta, 1, 3)});
+				    
+		CraftingManager.getInstance().addShapelessRecipe(new ItemStack(Items.meta, 1, 2),
+				new Object[] {new ItemStack(Items.mysticalHammer, 1, Short.MAX_VALUE), 
+				new ItemStack(Block.blockLapis), 
+			    new ItemStack(Items.meta, 1, 1)});
+				    
+		CraftingManager.getInstance().addShapelessRecipe(new ItemStack(Items.meta, 1, 3),
+				new Object[] {new ItemStack(Items.mysticalHammer, 1, Short.MAX_VALUE), new ItemStack(Item.ingotGold),
+				new ItemStack(Item.ingotGold), 
+				new ItemStack(Item.ingotIron), 
+				new ItemStack(Item.netherStar), 
+				new ItemStack(Items.meta, 1, 0)});
+		
+		CraftingManager.getInstance().addShapelessRecipe(new ItemStack(Items.meta, 4, 4),
+				new Object[] {new ItemStack(Items.hammer, 1, Short.MAX_VALUE), 
+				new ItemStack(Item.ingotIron)});
+				 
+		CraftingManager.getInstance().addShapelessRecipe(new ItemStack(Items.meta, 8, 4),
+				new Object[] {new ItemStack(Items.mysticalHammer, 1, Short.MAX_VALUE), 
+				new ItemStack(Item.ingotIron)});
+		
+		CraftingManager.getInstance().addShapelessRecipe(new ItemStack(Block.grass, 1),
+				new Object[] {new ItemStack(Item.dyePowder, 1, 15), 
+				new ItemStack(Block.dirt)}); 
+		
+		CraftingManager.getInstance().addShapelessRecipe(new ItemStack(Items.hammer),
+				new Object[] {new ItemStack(Items.meta, 1, 0),
+				new ItemStack(Items.meta, 1, 1)});
+				     
+		
+		//Shapeless Hammer Recipes
 		addRecipe(new HammerRecipe(Block.cobblestone), 				new HammerRecipe(Block.stone));
 		addRecipe(new HammerRecipe(Block.stone), 					new HammerRecipe(Block.stoneBrick));
 		
@@ -234,8 +296,6 @@ public class Recipes {
 		addRecipe(new HammerRecipe(Block.sandStone, 0), 			new HammerRecipe(Block.sandStone, 1));
 		addRecipe(new HammerRecipe(Block.sandStone, 1), 			new HammerRecipe(Block.sandStone, 2));
 		addRecipe(new HammerRecipe(Block.sandStone, 2), 			new HammerRecipe(Block.sandStone, 0));
-		
-		addRecipe(new HammerRecipe(Item.leather),					new HammerRecipe(Item.rottenFlesh), new HammerRecipe(Item.silk));
 		
 		addRecipe(new HammerRecipe(Block.cloth, 0), 				new HammerRecipe(Block.cloth, 1));
 		addRecipe(new HammerRecipe(Block.cloth, 1), 				new HammerRecipe(Block.cloth, 2));
@@ -319,6 +379,7 @@ public class Recipes {
 		addRecipe(new HammerRecipe(Block.stainedClay, 13), 			new HammerRecipe(Block.stainedClay, 14));
 		addRecipe(new HammerRecipe(Block.stainedClay, 14), 			new HammerRecipe(Block.stainedClay, 15));
 		addRecipe(new HammerRecipe(Block.stainedClay, 15), 			new HammerRecipe(Block.stainedClay, 0));	
+		
 		
 		//Furnace Recipes
 		FurnaceRecipes.smelting().addSmelting(Items.meta.itemID, 5, new ItemStack(Item.bread, 1), 0.1F);

@@ -1,8 +1,10 @@
 package afab.tileentities;
 
+import afab.interfaces.ISlotChanged;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.InventoryCraftResult;
+import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
@@ -10,7 +12,7 @@ import net.minecraft.tileentity.TileEntity;
 
 
 
-public class TileEntityFabTable extends TileEntity implements IInventory
+public class TileEntityFabTable extends TileEntity implements IInventory, ISlotChanged
 {
 	private ItemStack[] inventory;
     public IInventory craftResult = new InventoryCraftResult();
@@ -19,7 +21,7 @@ public class TileEntityFabTable extends TileEntity implements IInventory
     public TileEntityFabTable() {
 
         super();
-        inventory = new ItemStack[50];
+        inventory = new ItemStack[32];
         craftMatrixInventory = new ItemStack[9]; //TODO: magic number
     }
 	
@@ -32,6 +34,12 @@ public class TileEntityFabTable extends TileEntity implements IInventory
 	public ItemStack getStackInSlot(int i) {
 		
 		return this.inventory[i];
+	}
+	
+	@Override
+	public void onSlotChange(Slot slot, int id, ItemStack par1ItemStack,
+			ItemStack par2ItemStack) {
+		
 	}
 
     @Override
