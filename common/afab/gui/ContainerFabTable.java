@@ -132,7 +132,7 @@ public class ContainerFabTable extends Container implements ISlotChanged {
             itemstack = itemstack1.copy();
 
             if(par2 == 0) {
-                if (!this.mergeItemStack(itemstack1, 28, 64, false))
+                if (!this.mergeItemStack(itemstack1, 32, 67, false))
                 {
                     
                     if (itemstack1.stackSize == 0)
@@ -154,8 +154,10 @@ public class ContainerFabTable extends Container implements ISlotChanged {
             	
             	return itemstack;
             }else if(par2 >= 32 && par2 <= 67) {
-            	if (itemstack1.getUnlocalizedName().startsWith("fabUpgrade") && !this.mergeItemStack(itemstack1, 28, 31, false)
-            			|| !this.mergeItemStack(itemstack1, 10, 27, false))
+            	if (itemstack1.getUnlocalizedName().startsWith("fabUpgrade")) {
+            		return null;
+            	}
+            	else if (!this.mergeItemStack(itemstack1, 10, 27, false))
                 {
             		if (itemstack1.stackSize == 0)
                     {

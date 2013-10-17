@@ -34,4 +34,9 @@ public class SlotStartsWith extends Slot {
 		return par1ItemStack.getUnlocalizedName().startsWith(startString);
 	}
 	
+	@Override
+	public int getSlotStackLimit() {
+		return 1;
+	}
+	
 }
