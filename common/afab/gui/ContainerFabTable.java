@@ -9,15 +9,12 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.world.World;
+import afab.interfaces.ISlotChanged;
 import afab.tileentities.TileEntityFabTable;
 
 @SuppressWarnings("unused")
-public class ContainerFabTable extends Container{
-
-	
-	
+public class ContainerFabTable extends Container implements ISlotChanged {
 	private World worldObj;
-	
 	public TileEntityFabTable tileEntity;
 	
 	FabTabSlot FabSlot;
@@ -28,8 +25,6 @@ public class ContainerFabTable extends Container{
     /** The crafting matrix inventory (3x3). */          //container, width, length
     public InventoryCrafting craftMatrix = new InventoryCrafting(this, 3, 3);
     private FabTabSlot fabTabSlot;
-
-	
 	
 	public ContainerFabTable(TileEntityFabTable tileFabTable, InventoryPlayer playerInv, World world, int x, int y, int z)
 	{
@@ -61,11 +56,11 @@ public class ContainerFabTable extends Container{
 
 	         }
 	         
-	         this.addSlotToContainer(new SlotStartsWith(tileFabTable, "fabUpgrade", 28, 16, 10));
-	         this.addSlotToContainer(new SlotStartsWith(tileFabTable, "fabUpgrade", 29, 16, 36));
-	         this.addSlotToContainer(new SlotStartsWith(tileFabTable, "fabUpgrade", 30, 16, 62));
+	         this.addSlotToContainer(new SlotStartsWith(tileFabTable, "fabUpgrade", 28, 16, 10).setSlotChange(tileFabTable));
+	         this.addSlotToContainer(new SlotStartsWith(tileFabTable, "fabUpgrade", 29, 16, 36).setSlotChange(tileFabTable));
+	         this.addSlotToContainer(new SlotStartsWith(tileFabTable, "fabUpgrade", 30, 16, 62).setSlotChange(tileFabTable));
 	         
-	         this.addSlotToContainer(new SlotStartsWith(tileFabTable, "fabPlan", 31, 143, 10));
+	         this.addSlotToContainer(new SlotStartsWith(tileFabTable, "fabPlan", 31, 143, 10).setSlotChange(this));
 
 	         
 	         for(int row2 = 0; row2 < 3; row2++)
@@ -191,5 +186,12 @@ public class ContainerFabTable extends Container{
         }
 
         return itemstack;
+	}
+
+
+	@Override
+	public void onSlotChange(Slot slot, int id, ItemStack par1ItemStack,
+			ItemStack par2ItemStack) {
+		// TODO Plans
 	}
 }
