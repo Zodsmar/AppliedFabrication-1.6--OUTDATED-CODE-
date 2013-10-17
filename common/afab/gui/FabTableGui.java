@@ -17,7 +17,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class FabTableGui extends GuiContainer{
 
 	
-	private static final ResourceLocation field_110422_t = new ResourceLocation(ModInfo.MODID.toLowerCase() + ":textures/gui/fabTableGui.png");
+	private static final ResourceLocation field_110422_t = new ResourceLocation(ModInfo.MODID.toLowerCase() + ":textures/gui/fabTableGuiTest.png");
 
 	public FabTableGui(InventoryPlayer playerInv, TileEntityFabTable tileFabTable, World world, int x, int y, int z)
 	{
