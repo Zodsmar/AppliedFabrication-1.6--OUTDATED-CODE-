@@ -21,11 +21,11 @@ public class SlotStartsWith extends Slot {
 	}
 	
 	@Override
-	public void onSlotChange(ItemStack par1ItemStack, ItemStack par2ItemStack) {
-		super.onSlotChange(par1ItemStack, par2ItemStack);
+	public void putStack(ItemStack par1ItemStack) {
+		super.putStack(par1ItemStack);
 		
 		if(slotChanged != null)
-			slotChanged.onSlotChange(this, this.slotNumber, par1ItemStack, par2ItemStack);
+			slotChanged.onSlotChange(this, this.slotNumber, par1ItemStack);
 	}
 	
 	@Override

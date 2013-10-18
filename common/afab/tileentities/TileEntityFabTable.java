@@ -37,9 +37,8 @@ public class TileEntityFabTable extends TileEntity implements IInventory, ISlotC
 	}
 	
 	@Override
-	public void onSlotChange(Slot slot, int id, ItemStack par1ItemStack,
-			ItemStack par2ItemStack) {
-		
+	public void onSlotChange(Slot slot, int id, ItemStack itemStack) {
+		System.out.println("Upgrade changed");
 	}
 
     @Override

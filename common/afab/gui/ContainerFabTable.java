@@ -121,8 +121,6 @@ public class ContainerFabTable extends Container implements ISlotChanged {
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer entityPlayer, int par2)
 	{
-		System.out.println(par2);
-		
 		ItemStack itemstack = null;
         Slot slot = (Slot)this.inventorySlots.get(par2);
         
@@ -192,8 +190,9 @@ public class ContainerFabTable extends Container implements ISlotChanged {
 
 
 	@Override
-	public void onSlotChange(Slot slot, int id, ItemStack par1ItemStack,
-			ItemStack par2ItemStack) {
-		// TODO Plans
+	public void onSlotChange(Slot slot, int id, ItemStack itemStack) {
+		System.out.println("Plans changed");
+		
+		
 	}
 }

@@ -4,6 +4,9 @@ package afab;
 import java.util.logging.Level;
 
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.WeightedRandomChestContent;
+import net.minecraftforge.common.ChestGenHooks;
 import afab.blocks.Blocks;
 import afab.config.ConfigHandler;
 import afab.core.proxies.CommonProxy;
@@ -76,6 +79,13 @@ public class AppliedFabrication {
 
 		NetworkRegistry.instance().registerGuiHandler(ModInfo.MODNAME, guiHandler);
 		GameRegistry.registerTileEntity(TileEntityFabTable.class, "Fabrication Table");
+		
+		
+		ChestGenHooks.addItem(ChestGenHooks.VILLAGE_BLACKSMITH, new WeightedRandomChestContent(new ItemStack(Items.hammer), 1, 1, 80));
+		ChestGenHooks.addItem(ChestGenHooks.VILLAGE_BLACKSMITH, new WeightedRandomChestContent(new ItemStack(Items.mysticalHammer), 1, 1, 2));
+
+		ChestGenHooks.addItem(ChestGenHooks.PYRAMID_DESERT_CHEST, new WeightedRandomChestContent(new ItemStack(Items.mysticalHammer), 1, 1, 3));
+		ChestGenHooks.addItem(ChestGenHooks.STRONGHOLD_LIBRARY, new WeightedRandomChestContent(new ItemStack(Items.mysticalHammer), 1, 1, 10));
 
 	}
 
