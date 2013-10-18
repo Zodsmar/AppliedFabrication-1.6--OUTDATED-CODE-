@@ -86,6 +86,7 @@ public class AppliedFabrication {
 
 		ChestGenHooks.addItem(ChestGenHooks.PYRAMID_DESERT_CHEST, new WeightedRandomChestContent(new ItemStack(Items.mysticalHammer), 1, 1, 3));
 		ChestGenHooks.addItem(ChestGenHooks.STRONGHOLD_LIBRARY, new WeightedRandomChestContent(new ItemStack(Items.mysticalHammer), 1, 1, 10));
+
 	}
 
 	@EventHandler
