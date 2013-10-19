@@ -26,6 +26,20 @@ public class Recipes {
 				" 0 ",
 				Character.valueOf('0'), new ItemStack(Block.cobblestone)});
 		
+		CraftingManager.getInstance().addRecipe(new ItemStack(Items.meta, 1, 10),
+				new Object[] {
+				"000",
+				"000",
+				" 0 ",
+				Character.valueOf('0'), new ItemStack(Item.ingotIron)});
+		
+		CraftingManager.getInstance().addRecipe(new ItemStack(Items.meta, 1, 11),
+				new Object[] {
+				"000",
+				"000",
+				" 0 ",
+				Character.valueOf('0'), new ItemStack(Item.diamond)});
+		
 		CraftingManager.getInstance().addRecipe(new ItemStack(Items.meta, 1, 1),
 				new Object[] {
 				" 1 ",
@@ -405,6 +419,14 @@ public class Recipes {
 		
 		CraftingManager.getInstance().addShapelessRecipe(new ItemStack(output.id, 1, output.meta),
 				new Object[] {new ItemStack(Items.hammer, 1, Short.MAX_VALUE), 
+			new ItemStack(input.id, 1, input.meta)});
+		
+		CraftingManager.getInstance().addShapelessRecipe(new ItemStack(output.id, 1, output.meta),
+				new Object[] {new ItemStack(Items.ironHammer, 1, Short.MAX_VALUE), 
+			new ItemStack(input.id, 1, input.meta)});
+		
+		CraftingManager.getInstance().addShapelessRecipe(new ItemStack(output.id, 1, output.meta),
+				new Object[] {new ItemStack(Items.diamondHammer, 1, Short.MAX_VALUE), 
 			new ItemStack(input.id, 1, input.meta)});
 		
 		CraftingManager.getInstance().addShapelessRecipe(new ItemStack(output.id, 1, output.meta),

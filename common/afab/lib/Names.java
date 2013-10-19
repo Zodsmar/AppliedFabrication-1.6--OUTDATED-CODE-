@@ -33,7 +33,7 @@ public class Names {
 		"Diamond Hammer Head"
 	};
 	
-	public static final String hammer_name = "Hammer";
+	public static final String hammer_name = "Stone Hammer";
 	public static final String hammer_unlocalizedname = "hammer";
 	
 	public static final String ironHammer_name = "Iron Hammer";
