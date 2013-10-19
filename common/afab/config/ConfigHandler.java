@@ -13,7 +13,7 @@ public class ConfigHandler {
 
 		config.load();
 		
-		IDs.hammer_actual = config.getItem(Names.hammer_name, IDs.hammer_default).getInt() - 256;
+		IDs.hammer_actual = config.getItem(Names.hammer_name, IDs.hammer_default).getInt() - 257;
 		IDs.ironHammer_actual = config.getItem(Names.ironHammer_name, IDs.ironHammer_default).getInt() - 256;
 		IDs.diamondHammer_actual = config.getItem(Names.diamondHammer_name, IDs.diamondHammer_default).getInt() - 256;
 		IDs.metaItems_actual = config.get("Components", "ComponentsID", 4000).getInt() - 256;
