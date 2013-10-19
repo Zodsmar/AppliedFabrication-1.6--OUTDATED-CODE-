@@ -19,7 +19,7 @@ public class DiamondHammer extends ItemCraftingDamage{
 		this.setCreativeTab(AppliedFabrication.AFTab);
          this.setUnlocalizedName(Names.diamondHammer_unlocalizedname);
 		maxStackSize = 1;
-		setMaxDamage(127);
+		setMaxDamage(1535);
 	}
 	
 	@Override

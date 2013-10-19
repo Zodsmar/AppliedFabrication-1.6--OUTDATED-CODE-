@@ -19,7 +19,7 @@ public class IronHammer extends ItemCraftingDamage{
 		this.setCreativeTab(AppliedFabrication.AFTab);
          this.setUnlocalizedName(Names.ironHammer_unlocalizedname);
 		maxStackSize = 1;
-		setMaxDamage(127);
+		setMaxDamage(255);
 	}
 	
 	@Override
