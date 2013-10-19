@@ -172,7 +172,6 @@ public class Recipes {
 				"323",
 				"010",
 				Character.valueOf('0'), new ItemStack(Block.obsidian),
-				Character.valueOf('1'), new ItemStack(Item.netherStar),
 				Character.valueOf('2'), new ItemStack(Block.blockDiamond),
 				Character.valueOf('3'), new ItemStack(Block.whiteStone)});
 		
