@@ -14,23 +14,33 @@ public class Names {
 		"dough",
 		"fabUpgradePlans",
 		"fabUpgradeRedstone",
-		"fabUpgradeBuffer"
+		"fabUpgradeBuffer",
+		"ironHead",
+		"diamondHead"
 	};
 	public static final String[] metaItems_name = {
-		"Hammer Head",
+		"Stone Hammer Head",
 		"Rod",
 		"Divine Rod",
-		"Infused Head",
+		"Infused Hammer Head",
 		"Chain",
 		"Flour",
 		"Dough",
 		"UPGRADE: Plans",
 		"UPGRADE: Redstone Active",
-		"UPGRADE: Crafting Buffer"
+		"UPGRADE: Crafting Buffer",
+		"Iron Hammer Head",
+		"Diamond Hammer Head"
 	};
 	
-	public static final String hammer_name = "Hammer";
+	public static final String hammer_name = "Stone Hammer";
 	public static final String hammer_unlocalizedname = "hammer";
+	
+	public static final String ironHammer_name = "Iron Hammer";
+	public static final String ironHammer_unlocalizedname = "ironHammer";
+	
+	public static final String diamondHammer_name = "Diamond Hammer";
+	public static final String diamondHammer_unlocalizedname = "diamondHammer";
 	
 	public static final String mysticalHammer_name = "Mystical Hammer";
 	public static final String mysticalHammer_unlocalizedname = "mysticalHammer";

@@ -1,7 +1,5 @@
 package afab.items;
 
-
-
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -13,22 +11,22 @@ import afab.lib.Names;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class Hammer extends ItemCraftingDamage{
+public class DiamondHammer extends ItemCraftingDamage{
 
-	protected Hammer(int par1) {
+	protected DiamondHammer(int par1) {
 		
 		super(par1);
 		this.setCreativeTab(AppliedFabrication.AFTab);
-         this.setUnlocalizedName(Names.hammer_unlocalizedname);
+         this.setUnlocalizedName(Names.diamondHammer_unlocalizedname);
 		maxStackSize = 1;
-		setMaxDamage(127);
+		setMaxDamage(1535);
 	}
 	
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister icon) {
 
-		itemIcon = icon.registerIcon(ModInfo.MODID.toLowerCase() + ":" + Names.hammer_unlocalizedname);
+		itemIcon = icon.registerIcon(ModInfo.MODID.toLowerCase() + ":" + Names.diamondHammer_unlocalizedname);
 	}
 	
 	@Override
@@ -53,7 +51,6 @@ public class Hammer extends ItemCraftingDamage{
 			
 			return true;
 		}
-		
 		
 		return false;
 	}
