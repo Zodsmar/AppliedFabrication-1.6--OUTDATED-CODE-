@@ -356,7 +356,7 @@ public class Recipes {
 		CraftingManager.getInstance().addShapelessRecipe(new ItemStack(Items.diamondHammer),
 				new Object[] {new ItemStack(Items.meta, 1, 11),
 				new ItemStack(Items.meta, 1, 1)});
-				     
+			
 		
 		//Shapeless Hammer Recipes
 		addRecipe(new HammerRecipe(Block.cobblestone), 				new HammerRecipe(Block.stone));

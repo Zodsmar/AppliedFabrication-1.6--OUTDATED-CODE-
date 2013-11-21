@@ -54,6 +54,7 @@ public class Hammer extends ItemCraftingDamage{
 			return true;
 		}
 		
+		
 		return false;
 	}
 	
